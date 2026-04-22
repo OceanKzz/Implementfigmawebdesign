@@ -12,23 +12,18 @@ import { Footer } from "./components/Footer";
 
 export default function App() {
   return (
-    // Navbar is OUTSIDE the overflow-x-auto wrapper so sticky positioning works
-    <div className="w-full bg-white">
+    <div className="w-full bg-white overflow-x-hidden">
       <Navbar />
-      <div className="overflow-x-auto">
-        <div className="min-w-[1440px] flex flex-col">
-          <HeroSection />
-          <BrandsBar />
-          <AboutUs />
-          <StatisticSection />
-          <FeaturesSection />
-          <IndonesiaSection />
-          <PaymentSolutions />
-          <ValueSection />
-          <ContactSection />
-          <Footer />
-        </div>
-      </div>
+      <HeroSection />
+      <BrandsBar />
+      <AboutUs />
+      <StatisticSection />
+      <FeaturesSection />
+      <IndonesiaSection />
+      <PaymentSolutions />
+      <ValueSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 }

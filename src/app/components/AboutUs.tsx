@@ -2,19 +2,9 @@ import { motion } from "motion/react";
 import imgCreditCardMockup from "figma:asset/d611d324fb27016cbeedb04e867db1df6debf6c5.png";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   Card dimensions (pre-transform), derived from the Figma hypot calculation:
-     container: 436.808 × 252.18 px per slot
-     width  = hypot(62.4506% × 436.808, 62.4506% × 252.18) ≈ 315 px
-     height = hypot(37.5494% × 436.808, 37.5494% × 252.18) ≈ 189 px
-   Transform order matches Tailwind v4: rotate THEN skew (CSS right-to-left),
-   so visually: skewX is applied first, rotate second.
-───────────────────────────────────────────────────────────────────────────── */
 const CARD_W = 315;
 const CARD_H = 189;
 const CARD_TRANSFORM = "rotate(30deg) skewX(-30deg)";
-
-/* ── Shared sub-components ── */
 
 function PayPass({ pathD }: { pathD: string }) {
   return (
@@ -27,9 +17,7 @@ function PayPass({ pathD }: { pathD: string }) {
   );
 }
 
-function MastercardBadge({
-  left, right, middle, colored = false,
-}: { left: string; right: string; middle: string; colored?: boolean }) {
+function MastercardBadge({ left, right, middle, colored = false }: { left: string; right: string; middle: string; colored?: boolean }) {
   return (
     <div className="absolute bg-[rgba(255,255,255,0.1)] rounded-[3.987px]"
       style={{ left: 253, top: 140, width: 45.187, height: 31.897 }}>
@@ -65,7 +53,6 @@ function CardLabel({ name, left = 15, topName = 126, topNum = 150 }: { name: str
   );
 }
 
-/* ── Card 0 — bottom (photo background) ── */
 function CardPhoto() {
   return (
     <div className="relative rounded-[19.936px] size-full overflow-hidden">
@@ -80,7 +67,6 @@ function CardPhoto() {
   );
 }
 
-/* ── Card 1 — glass/frosted (OLIVIA RHYE) ── */
 function CardGlass1() {
   return (
     <div className="overflow-hidden relative rounded-[19.936px] border-[0.997px] border-white shadow-[7.974px_9.968px_15.949px_0px_rgba(0,0,0,0.05)] size-full"
@@ -92,11 +78,9 @@ function CardGlass1() {
   );
 }
 
-/* ── Card 2 — solid blue (Lana Steiner) ── */
 function CardBlue() {
   return (
     <div className="bg-[#1053f3] overflow-hidden relative rounded-[19.936px] border-[0.997px] border-white shadow-[7.974px_9.968px_15.949px_0px_rgba(0,0,0,0.05)] size-full">
-      {/* Colored mastercard */}
       <div className="absolute bg-[rgba(255,255,255,0.1)] rounded-[3.987px]"
         style={{ left: 253, top: 140, width: 45.187, height: 31.897 }}>
         <svg className="absolute inset-0 size-full" fill="none" viewBox="0 0 29.7149 17.8097">
@@ -111,12 +95,10 @@ function CardBlue() {
   );
 }
 
-/* ── Card 3 — glass with gradient blob (Demi Wilkinson) ── */
 function CardGlass2() {
   return (
     <div className="overflow-hidden relative rounded-[19.936px] border-[0.997px] border-white shadow-[7.974px_9.968px_15.949px_0px_rgba(0,0,0,0.05)] size-full"
       style={{ backdropFilter: "blur(5.981px)", backgroundImage: "linear-gradient(125.102deg, rgba(255,255,255,0.51) 3.5118%, rgba(255,255,255,0) 111.71%)" }}>
-      {/* Colorful gradient blob */}
       <div className="absolute" style={{ left: -16.95, top: -16.95, width: 159.485, height: 159.485 }}>
         <div className="absolute" style={{ inset: "-80%" }}>
           <svg className="block size-full" fill="none" viewBox="0 0 414.661 414.661">
@@ -143,16 +125,10 @@ function CardGlass2() {
   );
 }
 
-/* ── Shadow (bottom layer) ── */
 function CardShadow() {
   return <div className="bg-[#101010] size-full" style={{ borderRadius: 16.784, filter: "blur(13.427px)", opacity: 0.15 }} />;
 }
 
-/*
-  5 card layers, each occupying an "inset" strip of the 436.808 × 467 container.
-  The inner div is CARD_W × CARD_H with the skew+rotate applied.
-  All slot heights = 54% × 467 ≈ 252 px (so the hypot values are the same for every card).
-*/
 const SLOTS: Array<{ inset: [string, string, string, string]; content: React.ReactNode }> = [
   { inset: ["46%",   "0",     "0",     "0"    ], content: <CardShadow /> },
   { inset: ["34.5%", "0",     "11.5%", "0"    ], content: <CardPhoto /> },
@@ -168,21 +144,9 @@ function CreditCardStack() {
         <div
           key={i}
           className="absolute flex items-center justify-center"
-          style={{
-            top:    inset[0],
-            right:  inset[1],
-            bottom: inset[2],
-            left:   inset[3],
-          }}
+          style={{ top: inset[0], right: inset[1], bottom: inset[2], left: inset[3] }}
         >
-          <div
-            className="flex-none overflow-visible"
-            style={{
-              width:     CARD_W,
-              height:    CARD_H,
-              transform: CARD_TRANSFORM,
-            }}
-          >
+          <div className="flex-none overflow-visible" style={{ width: CARD_W, height: CARD_H, transform: CARD_TRANSFORM }}>
             {content}
           </div>
         </div>
@@ -191,50 +155,49 @@ function CreditCardStack() {
   );
 }
 
-/* ─── Section ─── */
 export function AboutUs() {
   return (
-    <section className="bg-white min-h-[678px] w-full relative overflow-hidden flex items-center justify-center">
-      {/* Decorative blue glow top-right */}
-      <div className="absolute pointer-events-none" style={{
-        right: "-3%", top: "0",
-        width: 580, height: 580, borderRadius: "50%",
-        background: "rgba(215,227,255,0.7)", filter: "blur(160px)",
-      }} />
-      {/* Warm peach blob bottom-left */}
-      <div className="absolute pointer-events-none" style={{
-        left: "-2%", bottom: "0",
-        width: 300, height: 300, borderRadius: "50%",
-        background: "rgba(235,110,70,0.05)",
-        filter: "blur(80px)",
-      }} />
+    <section className="bg-white w-full relative overflow-hidden flex items-center justify-center">
+      {/* Blobs */}
+      <div className="absolute pointer-events-none" style={{ right: "-3%", top: "0", width: 580, height: 580, borderRadius: "50%", background: "rgba(215,227,255,0.7)", filter: "blur(160px)" }} />
+      <div className="absolute pointer-events-none" style={{ left: "-2%", bottom: "0", width: 300, height: 300, borderRadius: "50%", background: "rgba(235,110,70,0.05)", filter: "blur(80px)" }} />
+      <div className="absolute pointer-events-none" style={{ left: "25%", top: "-5%", width: 380, height: 380, borderRadius: "50%", background: "rgba(250,204,21,0.06)", filter: "blur(130px)" }} />
+      <div className="absolute pointer-events-none" style={{ left: "50%", bottom: "0%", width: 320, height: 320, borderRadius: "50%", background: "rgba(16,83,243,0.05)", filter: "blur(100px)" }} />
+      <div className="absolute pointer-events-none" style={{ right: "20%", bottom: "10%", width: 240, height: 240, borderRadius: "50%", background: "rgba(235,110,70,0.06)", filter: "blur(90px)" }} />
+      <div className="absolute pointer-events-none" style={{ left: "10%", top: "20%", width: 200, height: 200, borderRadius: "50%", background: "rgba(76,106,255,0.06)", filter: "blur(80px)" }} />
 
-      <div className="max-w-[1440px] mx-auto w-full px-[171px] flex gap-[175px] items-center py-[122px]">
-        {/* Left */}
+      <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-[171px] flex flex-col lg:flex-row gap-10 lg:gap-[175px] items-center justify-center py-16 lg:py-[122px]">
+        {/* Left – card stack */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
           whileHover={{ scale: 1.02 }}
+          className="shrink-0"
         >
-          <CreditCardStack />
+          {/* Scale down on mobile */}
+          <div className="origin-top-left scale-[0.7] lg:scale-100" style={{ width: 436.808 * 0.7, height: 467 * 0.7 }}>
+            <div style={{ transform: "scale(0.7)", transformOrigin: "top left" }}>
+              <CreditCardStack />
+            </div>
+          </div>
         </motion.div>
 
-        {/* Right */}
+        {/* Right – text */}
         <motion.div
-          className="flex flex-col gap-[80px]"
+          className="flex flex-col gap-10 lg:gap-[80px]"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
           <div className="flex flex-col gap-[16px]">
-            <h2 className="text-[#101010] text-[40px] leading-[1.3] tracking-[-1px] w-[486px]"
+            <h2 className="text-[#101010] text-[32px] lg:text-[40px] leading-[1.3] tracking-[-1px] lg:w-[486px]"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
               Built for Reliable Transactions at Scale
             </h2>
-            <p className="text-[#757b8a] text-[16px] leading-[1.6] w-[409px]"
+            <p className="text-[#757b8a] text-[16px] leading-[1.6] lg:w-[409px]"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}>
               High success rates powered by multiple payment channels, ensuring
               stable and seamless transactions across Indonesia.
@@ -249,7 +212,7 @@ export function AboutUs() {
                 <path d={svgPaths.p2c755d00} fill="#0328EE" clipPath="url(#c-safe)" />
               </svg>
             </div>
-            <p className="text-[#101010] text-[16px] leading-[1.3] w-[272px]"
+            <p className="text-[#101010] text-[16px] leading-[1.3] lg:w-[272px]"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
               Transferring is very easy and super fast. Perfect payment app for all
             </p>
