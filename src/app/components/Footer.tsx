@@ -54,7 +54,7 @@ export function Footer() {
             <div className="text-white text-[15px] lg:text-[16px] leading-[24px] lg:w-[260px]"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 400 }}>
               <p>1929, Bancangan, Sambit,</p>
-              <p>Suroboyo, Wakanda</p>
+              <p>Surabaya, Wakanda</p>
             </div>
           </div>
           <div className="flex gap-[14px] items-center">

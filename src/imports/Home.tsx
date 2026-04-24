@@ -1164,7 +1164,7 @@ function Rating() {
 function UsedOurPlatform() {
   return (
     <div className="absolute contents left-[452px] top-[669px]" data-name="Used Our Platform">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[26px] left-[452px] text-[16px] top-[727px] w-[248px]">Users used our platform in around the world</p>
+      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[26px] left-[452px] text-[16px] top-[727px] w-[248px]">Users use our platform around the world</p>
       <p className="absolute font-['Poppins:Bold',sans-serif] leading-[46px] left-[452px] text-[36px] top-[669px] whitespace-nowrap">750k</p>
     </div>
   );
@@ -1173,7 +1173,7 @@ function UsedOurPlatform() {
 function PoweredBusiness() {
   return (
     <div className="absolute contents left-[164px] top-[669px]" data-name="Powered Business">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[26px] left-[164px] text-[16px] top-[727px] w-[248px]">Over 500k business powered with us</p>
+      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[26px] left-[164px] text-[16px] top-[727px] w-[248px]">Over 500k businesses powered with us</p>
       <p className="absolute font-['Poppins:Bold',sans-serif] leading-[46px] left-[164px] text-[36px] top-[669px] whitespace-nowrap">350+</p>
     </div>
   );
@@ -2030,7 +2030,7 @@ function Section() {
   return (
     <div className="absolute font-['Inter:Regular',sans-serif] font-normal h-[99px] leading-[normal] left-0 not-italic overflow-clip text-[16px] text-white top-[522px] w-[1440px] whitespace-nowrap" data-name="Section">
       <FooterLinks />
-      <p className="absolute left-[120px] top-[40px]">{`© Jalur Pay by `}</p>
+      <p className="absolute left-[120px] top-[40px]">{`© Jalur Pay by Jalur Pay Inc.`}</p>
     </div>
   );
 }
@@ -2076,7 +2076,7 @@ function Address() {
       <IconLocation />
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] not-italic relative shrink-0 text-[16px] text-white w-[260px]">
         <p className="leading-[24px] mb-0">1929, Bancangan, Sambit,</p>
-        <p className="leading-[24px]">Suroboyo, Wakanda</p>
+        <p className="leading-[24px]">Surabaya, Wakanda</p>
       </div>
     </div>
   );
