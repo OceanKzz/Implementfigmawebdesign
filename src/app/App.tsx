@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { HomePage } from "./pages/HomePage";
@@ -9,7 +10,21 @@ import { SolutionsSmbPage } from "./pages/SolutionsSmbPage";
 import { getRoutePath } from "./routing";
 
 export default function App() {
-  const pathname = typeof window !== "undefined" ? getRoutePath(window.location.pathname) : "/";
+  const [pathname, setPathname] = useState(() =>
+    typeof window !== "undefined" ? getRoutePath() : "/",
+  );
+
+  useEffect(() => {
+    const updatePathname = () => setPathname(getRoutePath());
+
+    window.addEventListener("hashchange", updatePathname);
+    window.addEventListener("popstate", updatePathname);
+
+    return () => {
+      window.removeEventListener("hashchange", updatePathname);
+      window.removeEventListener("popstate", updatePathname);
+    };
+  }, []);
 
   if (pathname === "/about") {
     return <AboutPage />;

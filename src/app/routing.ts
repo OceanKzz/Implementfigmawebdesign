@@ -12,8 +12,16 @@ function trimTrailingSlash(path: string) {
   return path.length > 1 ? path.replace(/\/+$/, "") : path;
 }
 
-export function getRoutePath(pathname = window.location.pathname) {
-  const normalized = trimTrailingSlash(pathname);
+function normalizeRoute(path: string) {
+  const route = path.startsWith("/") ? path : `/${path}`;
+  return trimTrailingSlash(route);
+}
+
+export function getRoutePath() {
+  const hashRoute = window.location.hash.startsWith("#/")
+    ? window.location.hash.slice(1)
+    : "";
+  const normalized = normalizeRoute(hashRoute || window.location.pathname);
   const matchedRoute = routes
     .slice()
     .sort((a, b) => b.length - a.length)
@@ -22,28 +30,10 @@ export function getRoutePath(pathname = window.location.pathname) {
   return matchedRoute ?? "/";
 }
 
-export function getAppBasePath(pathname = window.location.pathname) {
-  const routePath = getRoutePath(pathname);
-
-  if (routePath !== "/" && pathname.endsWith(routePath)) {
-    return pathname.slice(0, -routePath.length) || "/";
-  }
-
-  const configuredBase = import.meta.env.BASE_URL;
-  if (configuredBase && configuredBase !== "./") {
-    return configuredBase;
-  }
-
-  return pathname.endsWith("/") ? pathname : `${pathname}/`;
-}
-
 export function appHref(path: string) {
   if (path === "#" || path.startsWith("http") || path.startsWith("mailto:")) {
     return path;
   }
 
-  const basePath = getAppBasePath().replace(/\/+$/, "");
-  const routePath = path.startsWith("/") ? path : `/${path}`;
-
-  return `${basePath}${routePath}` || "/";
+  return `#${normalizeRoute(path)}`;
 }
