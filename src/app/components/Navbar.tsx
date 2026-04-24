@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Building2, BriefcaseBusiness, Code2, CreditCard, QrCode, Store } from "lucide-react";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
 import { appHref } from "../routing";
+import { openRegisterModal } from "./RegisterModal";
 
 function LogoSVG() {
   return (
@@ -213,6 +214,7 @@ export function Navbar({ activeItem = "Home" }: NavbarProps) {
           <motion.button
             className="bg-[#1053f3] text-white font-bold text-[16px] px-[32px] py-[16px] rounded-[8px] w-[126px]"
             style={{ fontFamily: "Inter, sans-serif" }}
+            onClick={openRegisterModal}
             whileHover={{ scale: 1.04, backgroundColor: "#0d44d4" }}
             whileTap={{ scale: 0.97 }}
           >
@@ -301,6 +303,7 @@ export function Navbar({ activeItem = "Home" }: NavbarProps) {
           <motion.button
             className="bg-[#1053f3] text-white font-bold text-[14px] px-4 py-2 rounded-[8px]"
             style={{ fontFamily: "Inter, sans-serif" }}
+            onClick={openRegisterModal}
             whileTap={{ scale: 0.97 }}
           >
             Sign In

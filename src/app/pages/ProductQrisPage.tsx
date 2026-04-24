@@ -3,6 +3,7 @@ import { CheckCircle2, QrCode, ShieldCheck, Store, WalletCards } from "lucide-re
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroImage = "https://www.figma.com/api/mcp/asset/5ad4cb30-b227-40d5-9ed9-32c13c9fd4e0";
 const featureImage = "https://www.figma.com/api/mcp/asset/b0744cff-fce0-49a1-8425-7cba7c509f57";
@@ -452,6 +453,7 @@ export function ProductQrisPage() {
               </label>
               <button
                 type="button"
+                onClick={openSubmitSuccessModal}
                 className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-[32px] text-[18px] text-white"
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >

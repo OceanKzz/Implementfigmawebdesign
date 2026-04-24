@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
+import { openSubmitSuccessModal } from "./SubmitSuccessModal";
 
 const inputClass =
   "rounded-[52px] border border-[#1053f3] px-[14px] text-[14px] outline-none focus:ring-2 focus:ring-[#1053f3]/30 transition h-[42px] w-full";
@@ -8,15 +9,13 @@ const labelClass = "text-[#1a1a1a] text-[14px] leading-[26px] tracking-[0.14px]"
 
 export function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", source: "", phone: "", message: "" });
-  const [sent, setSent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    openSubmitSuccessModal();
   };
 
   return (
@@ -142,7 +141,7 @@ export function ContactSection() {
             whileHover={{ scale: 1.04, backgroundColor: "#0d44d4" }}
             whileTap={{ scale: 0.97 }}
           >
-            {sent ? "✓ Sent!" : "Send"}
+            Send
           </motion.button>
         </motion.form>
       </div>

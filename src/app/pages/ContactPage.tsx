@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Navbar } from "../components/Navbar";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroImage = "https://www.figma.com/api/mcp/asset/a849ee4f-2dc8-4f04-b171-811b32804b2a";
 const contactWave = "https://www.figma.com/api/mcp/asset/0d47233e-1da3-424b-b79d-d492bdd12791";
@@ -192,6 +193,7 @@ export function ContactPage() {
               ))}
               <button
                 type="button"
+                onClick={openSubmitSuccessModal}
                 className="inline-flex h-[43px] w-fit items-center justify-center rounded-[32px] bg-[#1053f3] px-[32px] text-[18px] font-semibold text-white transition-colors hover:bg-[#0d44d4]"
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >

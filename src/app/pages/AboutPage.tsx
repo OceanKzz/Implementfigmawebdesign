@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Navbar } from "../components/Navbar";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroBg = "https://www.figma.com/api/mcp/asset/e30bb743-9456-47b8-bd3d-3d99ad8e5884";
 const whyRings = "https://www.figma.com/api/mcp/asset/9b549c15-297c-4339-938f-203b880c388e";
@@ -366,6 +367,7 @@ export function AboutPage() {
               </label>
               <button
                 type="button"
+                onClick={openSubmitSuccessModal}
                 className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-[32px] text-[18px] text-white"
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >

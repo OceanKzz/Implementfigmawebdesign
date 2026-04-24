@@ -4,6 +4,7 @@ import { CheckCheck, Clock3, Landmark, QrCode, ShieldCheck, Users, WalletCards }
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroImage = "https://www.figma.com/api/mcp/asset/e5cf77ff-e57d-4b6b-b978-1b38e94d4612";
 const featureMark = "https://www.figma.com/api/mcp/asset/5f87470b-2c42-4daa-997e-30f4d03370f8";
@@ -624,7 +625,7 @@ export function SolutionsEnterprisePage() {
                 </span>
                 <input className="h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
-              <button type="button" className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-8 text-[18px] font-semibold text-white" style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}>
+              <button type="button" onClick={openSubmitSuccessModal} className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-8 text-[18px] font-semibold text-white" style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}>
                 Send
               </button>
             </motion.form>

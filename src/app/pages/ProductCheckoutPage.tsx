@@ -4,6 +4,7 @@ import { CreditCard, Layers3, Rocket } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroPhone = "https://www.figma.com/api/mcp/asset/71b43f2c-2f52-46f0-a8fc-f59b8c14fe9c";
 const payBca = "https://www.figma.com/api/mcp/asset/e5913d4b-ad0c-4cbd-83a4-2f37142cdca7";
@@ -436,6 +437,7 @@ export function ProductCheckoutPage() {
               </label>
               <button
                 type="button"
+                onClick={openSubmitSuccessModal}
                 className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-8 text-[18px] font-semibold text-white"
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >

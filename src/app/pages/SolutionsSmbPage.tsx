@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroImage = "https://www.figma.com/api/mcp/asset/dd615769-7ab2-4340-a2be-7dd0fe47e28d";
 const featuresImage = "https://www.figma.com/api/mcp/asset/8d4f4acc-0ea4-4168-bd00-6d298a19d97b";
@@ -637,6 +638,7 @@ export function SolutionsSmbPage() {
               </label>
               <button
                 type="button"
+                onClick={openSubmitSuccessModal}
                 className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-8 text-[18px] font-semibold text-white"
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import imgHero from "figma:asset/a187b20223b723965565d2a7e754c24228bf8686.png";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
+import { openRegisterModal } from "./RegisterModal";
 
 function JalurPayCardBadge() {
   return (
@@ -91,6 +92,7 @@ export function HeroSection() {
             variants={fadeUp}
             className="bg-[#1053f3] text-white font-bold text-[16px] px-8 py-4 rounded-[8px]"
             style={{ fontFamily: "Inter, sans-serif" }}
+            onClick={openRegisterModal}
             whileHover={{ scale: 1.05, backgroundColor: "#0d44d4" }}
             whileTap={{ scale: 0.97 }}
           >
@@ -210,6 +212,7 @@ export function HeroSection() {
             variants={fadeUp}
             className="bg-[#1053f3] text-white font-bold text-[16px] px-[32px] py-[16px] rounded-[8px] w-[218px]"
             style={{ fontFamily: "Inter, sans-serif" }}
+            onClick={openRegisterModal}
             whileHover={{ scale: 1.05, backgroundColor: "#0d44d4" }}
             whileTap={{ scale: 0.97 }}
           >

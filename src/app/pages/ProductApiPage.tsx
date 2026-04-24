@@ -3,6 +3,7 @@ import { CheckCircle2, Code2, KeyRound, Plane, ShieldCheck, Wallet } from "lucid
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroIllustration = "https://www.figma.com/api/mcp/asset/f5938469-6a20-49b3-8b2e-835c1dd1d265";
 const developerImage = "https://www.figma.com/api/mcp/asset/68ae81aa-8f16-4ce5-8418-fc077da983a4";
@@ -434,6 +435,7 @@ export function ProductApiPage() {
               </label>
               <button
                 type="button"
+                onClick={openSubmitSuccessModal}
                 className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-[32px] text-[18px] text-white"
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >
