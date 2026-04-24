@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&family=Plus+Jakarta+Sans:wght@500;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
 
 /* Create font-family aliases for Figma-exported class names */
 @font-face {
@@ -96,6 +96,42 @@
   font-style: normal;
   font-weight: 600;
   src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZJhiA.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'DM_Sans:Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('DM Sans Regular'), local('DMSans-Regular');
+}
+@font-face {
+  font-family: 'DM_Sans:Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZOIHQ.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus_Jakarta_Sans:Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Plus Jakarta Sans Bold'), local('PlusJakartaSans-Bold');
+}
+@font-face {
+  font-family: 'Plus_Jakarta_Sans:Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://fonts.gstatic.com/s/plusjakartasans/v8/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yyghfvaZ-Q.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus_Jakarta_Sans:Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Plus Jakarta Sans Medium'), local('PlusJakartaSans-Medium');
+}
+@font-face {
+  font-family: 'Plus_Jakarta_Sans:Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://fonts.gstatic.com/s/plusjakartasans/v8/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Koz4iyghfvaZ-Q.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Manrope:SemiBold';

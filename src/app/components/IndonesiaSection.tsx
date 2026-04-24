@@ -4,8 +4,8 @@ import imgMap from "figma:asset/3f297b6a3ec1658c5c2441934baa003fe2cbc805.png";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
 
 const globalStats = [
-  { target: 350, suffix: "+",  decimals: 0, desc: "Over 500k business powered with us" },
-  { target: 750, suffix: "k",  decimals: 0, desc: "Users used our platform in around the world" },
+  { target: 350, suffix: "+",  decimals: 0, desc: "Over 500k businesses powered with us" },
+  { target: 750, suffix: "k",  decimals: 0, desc: "Users use our platform around the world" },
   { target: 4.8, suffix: "",   decimals: 1, desc: "Ratings on multiple software platforms" },
   { target: 24,  suffix: "+",  decimals: 0, desc: "More than 30 countries trust our platform" },
 ];

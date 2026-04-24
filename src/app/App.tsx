@@ -1,29 +1,42 @@
-import { Navbar } from "./components/Navbar";
-import { HeroSection } from "./components/HeroSection";
-import { BrandsBar } from "./components/BrandsBar";
-import { AboutUs } from "./components/AboutUs";
-import { StatisticSection } from "./components/StatisticSection";
-import { FeaturesSection } from "./components/FeaturesSection";
-import { IndonesiaSection } from "./components/IndonesiaSection";
-import { PaymentSolutions } from "./components/PaymentSolutions";
-import { ValueSection } from "./components/ValueSection";
-import { ContactSection } from "./components/ContactSection";
-import { Footer } from "./components/Footer";
+import { AboutPage } from "./pages/AboutPage";
+import { ContactPage } from "./pages/ContactPage";
+import { HomePage } from "./pages/HomePage";
+import { ProductApiPage } from "./pages/ProductApiPage";
+import { ProductCheckoutPage } from "./pages/ProductCheckoutPage";
+import { ProductQrisPage } from "./pages/ProductQrisPage";
+import { SolutionsEnterprisePage } from "./pages/SolutionsEnterprisePage";
+import { SolutionsSmbPage } from "./pages/SolutionsSmbPage";
 
 export default function App() {
-  return (
-    <div className="w-full bg-white overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-      <BrandsBar />
-      <AboutUs />
-      <StatisticSection />
-      <FeaturesSection />
-      <IndonesiaSection />
-      <PaymentSolutions />
-      <ValueSection />
-      <ContactSection />
-      <Footer />
-    </div>
-  );
+  const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
+
+  if (pathname === "/about") {
+    return <AboutPage />;
+  }
+
+  if (pathname === "/contact") {
+    return <ContactPage />;
+  }
+
+  if (pathname === "/solutions/smb") {
+    return <SolutionsSmbPage />;
+  }
+
+  if (pathname === "/solutions/enterprise") {
+    return <SolutionsEnterprisePage />;
+  }
+
+  if (pathname === "/product/checkout") {
+    return <ProductCheckoutPage />;
+  }
+
+  if (pathname === "/product/api") {
+    return <ProductApiPage />;
+  }
+
+  if (pathname === "/product/qris") {
+    return <ProductQrisPage />;
+  }
+
+  return <HomePage />;
 }
