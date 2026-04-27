@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
-import { openSubmitSuccessModal } from "./SubmitSuccessModal";
+import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "./LeadFormValidation";
 
 const inputClass =
   "rounded-[52px] border border-[#1053f3] px-[14px] text-[14px] outline-none focus:ring-2 focus:ring-[#1053f3]/30 transition h-[42px] w-full";
@@ -9,14 +9,10 @@ const labelClass = "text-[#1a1a1a] text-[14px] leading-[26px] tracking-[0.14px]"
 
 export function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", source: "", phone: "", message: "" });
+  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    openSubmitSuccessModal();
-  };
 
   return (
     <section className="bg-[#f7f9ff] w-full relative overflow-hidden flex items-center justify-center">
@@ -95,7 +91,7 @@ export function ContactSection() {
 
         {/* Right: Form */}
         <motion.form
-          onSubmit={handleSubmit}
+          onSubmit={submitLeadForm}
           className="bg-white border border-[#e3e3e3] rounded-[24px] w-full lg:w-[464px] lg:shrink-0 px-5 lg:px-[31px] py-6 lg:py-[24px] flex flex-col gap-[18px] lg:gap-[20px]"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -134,9 +130,10 @@ export function ContactSection() {
               style={{ fontFamily: "Poppins, sans-serif" }} />
           </div>
 
+          <LeadFormMessage show={showIncompleteMessage} />
           <motion.button
             type="submit"
-            className="bg-[#1053f3] text-white text-[17px] h-[43px] px-[32px] rounded-[32px] self-start relative overflow-hidden"
+            className={`${leadFormButtonClass} self-start relative overflow-hidden`}
             style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
             whileHover={{ scale: 1.04, backgroundColor: "#0d44d4" }}
             whileTap={{ scale: 0.97 }}

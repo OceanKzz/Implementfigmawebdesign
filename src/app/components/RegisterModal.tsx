@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { BadgeCheck, Building2, ChevronDown, Globe2, Mail, UserCircle } from "lucide-react";
+import { BadgeCheck, Building2, ChevronDown, Globe2, Mail, UserCircle, X } from "lucide-react";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
 
 const registerModalEvent = "jalurpay:open-register-modal";
@@ -113,7 +113,7 @@ export function RegisterModal({ open, onClose }: RegisterModalProps) {
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
           >
-            <div className="flex h-[81px] items-center justify-between bg-gradient-to-r from-[#75aaf8] to-[#1053f3] px-[22px]">
+            <div className="relative flex h-[81px] items-center justify-between bg-gradient-to-r from-[#75aaf8] to-[#1053f3] px-[22px] pr-[58px]">
               <h2
                 id="register-modal-title"
                 className="capitalize text-[20px] font-bold leading-[1.32] text-white"
@@ -123,6 +123,14 @@ export function RegisterModal({ open, onClose }: RegisterModalProps) {
                 <span className="block">Jalur Pay</span>
               </h2>
               <WhiteLogo />
+              <button
+                type="button"
+                aria-label="Close register dialog"
+                onClick={onClose}
+                className="absolute right-[14px] top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full text-white/85 transition-colors hover:bg-white/16 hover:text-white focus:bg-white/16 focus:outline-none focus:ring-2 focus:ring-white/60"
+              >
+                <X size={20} strokeWidth={2.4} />
+              </button>
             </div>
 
             {submitted ? (

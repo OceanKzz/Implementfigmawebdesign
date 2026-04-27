@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroImage = "https://www.figma.com/api/mcp/asset/dd615769-7ab2-4340-a2be-7dd0fe47e28d";
 const featuresImage = "https://www.figma.com/api/mcp/asset/8d4f4acc-0ea4-4168-bd00-6d298a19d97b";
@@ -167,6 +167,8 @@ function CountUpStat({ value, suffix, duration = 1600 }: { value: number; suffix
 }
 
 export function SolutionsSmbPage() {
+  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+
   return (
     <div className="w-full overflow-x-hidden bg-white">
       <Navbar activeItem="Solutions" />
@@ -592,6 +594,7 @@ export function SolutionsSmbPage() {
             </motion.div>
 
             <motion.form
+              onSubmit={submitLeadForm}
               className="w-full max-w-[464px] rounded-[24px] border border-[#e3e3e3] bg-white px-[31px] py-6"
               initial={{ opacity: 0, x: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -636,10 +639,10 @@ export function SolutionsSmbPage() {
                 </span>
                 <input className="h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
+              <LeadFormMessage show={showIncompleteMessage} />
               <button
-                type="button"
-                onClick={openSubmitSuccessModal}
-                className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-8 text-[18px] font-semibold text-white"
+                type="submit"
+                className={leadFormButtonClass}
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >
                 Send

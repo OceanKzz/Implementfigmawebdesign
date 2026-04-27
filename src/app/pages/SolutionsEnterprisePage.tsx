@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 import { CheckCheck, Clock3, Landmark, QrCode, ShieldCheck, Users, WalletCards } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroImage = "https://www.figma.com/api/mcp/asset/e5cf77ff-e57d-4b6b-b978-1b38e94d4612";
 const featureMark = "https://www.figma.com/api/mcp/asset/5f87470b-2c42-4daa-997e-30f4d03370f8";
@@ -203,6 +203,8 @@ function SalesChart() {
 }
 
 export function SolutionsEnterprisePage() {
+  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+
   return (
     <div className="w-full overflow-x-hidden bg-white">
       <Navbar activeItem="Solutions" />
@@ -593,6 +595,7 @@ export function SolutionsEnterprisePage() {
             </motion.div>
 
             <motion.form
+              onSubmit={submitLeadForm}
               className="w-full max-w-[464px] rounded-[24px] border border-[#e3e3e3] bg-white px-[31px] py-6"
               initial={{ opacity: 0, x: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -625,7 +628,8 @@ export function SolutionsEnterprisePage() {
                 </span>
                 <input className="h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
-              <button type="button" onClick={openSubmitSuccessModal} className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-8 text-[18px] font-semibold text-white" style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}>
+              <LeadFormMessage show={showIncompleteMessage} />
+              <button type="submit" className={leadFormButtonClass} style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}>
                 Send
               </button>
             </motion.form>

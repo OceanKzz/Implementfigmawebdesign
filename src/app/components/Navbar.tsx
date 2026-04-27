@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Building2, BriefcaseBusiness, Code2, CreditCard, QrCode, Store } from "lucide-react";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
+import { useLanguage } from "../i18n";
 import { appHref } from "../routing";
 import { openRegisterModal } from "./RegisterModal";
 
@@ -98,11 +99,17 @@ interface NavbarProps {
 
 export function Navbar({ activeItem = "Home" }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState("EN");
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<DropdownLabel | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<DropdownLabel | null>(null);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const closeTimerRef = useRef<number | null>(null);
+  const { language, setLanguage } = useLanguage();
+  const langLabel = language === "en" ? "EN" : "ID";
+  const languageOptions = [
+    { value: "en" as const, label: "EN", name: "English" },
+    { value: "id" as const, label: "ID", name: "Indonesia" },
+  ];
 
   const clearCloseTimer = () => {
     if (closeTimerRef.current !== null) {
@@ -198,18 +205,75 @@ export function Navbar({ activeItem = "Home" }: NavbarProps) {
         </div>
 
         <div className="flex items-center gap-[15px]">
-          <motion.button
-            onClick={() => setLang(lang === "EN" ? "ID" : "EN")}
-            className="bg-[#dfe8ff] border border-[#1053f3] text-[#1053f3] font-bold text-[16px] px-[32px] py-[16px] rounded-[8px] w-[126px] flex items-center justify-center gap-[8px]"
-            style={{ fontFamily: "Inter, sans-serif" }}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
+          <motion.div
+            className="relative"
+            data-no-translate
+            onMouseEnter={() => setLanguageMenuOpen(true)}
+            onMouseLeave={() => setLanguageMenuOpen(false)}
+            onFocus={() => setLanguageMenuOpen(true)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) {
+                setLanguageMenuOpen(false);
+              }
+            }}
           >
-            {lang}
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{ transform: "rotate(90deg)" }}>
-              <path d={svgPaths.p1ad1800} fill="#727272" />
-            </svg>
-          </motion.button>
+            <motion.button
+              type="button"
+              className="flex w-[126px] items-center justify-center gap-[8px] rounded-[8px] border border-[#1053f3] bg-[#dfe8ff] px-[32px] py-[16px] text-[16px] font-bold text-[#1053f3]"
+              style={{ fontFamily: "Inter, sans-serif" }}
+              aria-haspopup="listbox"
+              aria-expanded={languageMenuOpen}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              {langLabel}
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                className="transition-transform"
+                style={{ transform: languageMenuOpen ? "rotate(90deg)" : "rotate(-90deg)" }}
+              >
+                <path d={svgPaths.p1ad1800} fill="#727272" />
+              </svg>
+            </motion.button>
+
+            <AnimatePresence>
+              {languageMenuOpen && (
+                <motion.div
+                  className="absolute left-0 top-[calc(100%+10px)] z-[70] w-[126px] overflow-hidden rounded-[10px] border border-[#c8d8ff] bg-white p-1 shadow-[0_16px_36px_rgba(16,83,243,0.14)]"
+                  initial={{ opacity: 0, y: -4, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -4, scale: 0.98 }}
+                  transition={{ duration: 0.16, ease: "easeOut" }}
+                  role="listbox"
+                >
+                  {languageOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      type="button"
+                      role="option"
+                      aria-selected={language === option.value}
+                      className={`flex h-[42px] w-full items-center justify-between rounded-[7px] px-3 text-left text-[14px] font-bold transition-colors ${
+                        language === option.value
+                          ? "bg-[#edf3ff] text-[#1053f3]"
+                          : "text-[#4b5565] hover:bg-[#f7f9ff] hover:text-[#1053f3]"
+                      }`}
+                      style={{ fontFamily: "Inter, sans-serif" }}
+                      onClick={() => {
+                        setLanguage(option.value);
+                        setLanguageMenuOpen(false);
+                      }}
+                    >
+                      <span>{option.label}</span>
+                      <span className="text-[10px] font-medium text-[#757b8a]">{option.name}</span>
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           <motion.button
             className="bg-[#1053f3] text-white font-bold text-[16px] px-[32px] py-[16px] rounded-[8px] w-[126px]"
@@ -410,16 +474,60 @@ export function Navbar({ activeItem = "Home" }: NavbarProps) {
                 )}
               </div>
             ))}
-            <button
-              onClick={() => setLang(lang === "EN" ? "ID" : "EN")}
-              className="mt-2 self-start bg-[#dfe8ff] border border-[#1053f3] text-[#1053f3] font-bold text-[14px] px-4 py-2 rounded-[8px] flex items-center gap-2"
-              style={{ fontFamily: "Inter, sans-serif" }}
-            >
-              {lang}
-              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" style={{ transform: "rotate(90deg)" }}>
-                <path d={svgPaths.p1ad1800} fill="#727272" />
-              </svg>
-            </button>
+            <div className="mt-2 self-start" data-no-translate>
+              <button
+                type="button"
+                onClick={() => setLanguageMenuOpen((open) => !open)}
+                className="flex items-center gap-2 rounded-[8px] border border-[#1053f3] bg-[#dfe8ff] px-4 py-2 text-[14px] font-bold text-[#1053f3]"
+                style={{ fontFamily: "Inter, sans-serif" }}
+                aria-haspopup="listbox"
+                aria-expanded={languageMenuOpen}
+              >
+                {langLabel}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  className="transition-transform"
+                  style={{ transform: languageMenuOpen ? "rotate(90deg)" : "rotate(-90deg)" }}
+                >
+                  <path d={svgPaths.p1ad1800} fill="#727272" />
+                </svg>
+              </button>
+              <AnimatePresence>
+                {languageMenuOpen && (
+                  <motion.div
+                    className="mt-2 w-[150px] overflow-hidden rounded-[10px] border border-[#c8d8ff] bg-white p-1"
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.16 }}
+                    role="listbox"
+                  >
+                    {languageOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        role="option"
+                        aria-selected={language === option.value}
+                        className={`flex h-[40px] w-full items-center justify-between rounded-[7px] px-3 text-left text-[14px] font-bold ${
+                          language === option.value ? "bg-[#edf3ff] text-[#1053f3]" : "text-[#4b5565]"
+                        }`}
+                        style={{ fontFamily: "Inter, sans-serif" }}
+                        onClick={() => {
+                          setLanguage(option.value);
+                          setLanguageMenuOpen(false);
+                        }}
+                      >
+                        <span>{option.label}</span>
+                        <span className="text-[11px] font-medium text-[#757b8a]">{option.name}</span>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>

@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Navbar } from "../components/Navbar";
+import { LeadFormMessage, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroImage = "https://www.figma.com/api/mcp/asset/a849ee4f-2dc8-4f04-b171-811b32804b2a";
 const contactWave = "https://www.figma.com/api/mcp/asset/0d47233e-1da3-424b-b79d-d492bdd12791";
@@ -54,7 +54,11 @@ function ContactIconRow({
   );
 }
 
-function FormInput({ label }: { label: string }) {
+function FormInput({
+  label,
+}: {
+  label: string;
+}) {
   return (
     <label className="block w-full">
       <span
@@ -66,14 +70,17 @@ function FormInput({ label }: { label: string }) {
       <input
         className="mt-[6px] h-[38px] w-full rounded-[52px] border border-[#1053f3] bg-white px-4 text-[14px] outline-none transition-shadow focus:shadow-[0_0_0_3px_rgba(16,83,243,0.16)]"
         aria-label={label}
+        name={label}
       />
     </label>
   );
 }
 
 export function ContactPage() {
+  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+
   return (
-    <div className="w-full overflow-x-hidden bg-white">
+    <div className="w-full overflow-x-clip bg-white">
       <Navbar activeItem="Contact us" />
 
       <motion.section
@@ -178,6 +185,7 @@ export function ContactPage() {
             </motion.div>
 
             <motion.form
+              onSubmit={submitLeadForm}
               className="flex w-full flex-col gap-5 rounded-[24px] border border-[#e3e3e3] bg-white px-[31px] py-[24px] lg:h-[557px] lg:justify-center"
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -191,14 +199,18 @@ export function ContactPage() {
                   ))}
                 </div>
               ))}
-              <button
-                type="button"
-                onClick={openSubmitSuccessModal}
-                className="inline-flex h-[43px] w-fit items-center justify-center rounded-[32px] bg-[#1053f3] px-[32px] text-[18px] font-semibold text-white transition-colors hover:bg-[#0d44d4]"
-                style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
+              <LeadFormMessage show={showIncompleteMessage} />
+              <motion.button
+                type="submit"
+                className="flex h-[43px] w-[108px] items-center justify-center rounded-[32px] bg-[#1053f3] text-[17px] text-white self-start relative overflow-hidden"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+                initial={{ scale: 1 }}
+                animate={{ scale: 1 }}
+                whileHover={{ scale: 1.04, backgroundColor: "#0d44d4" }}
+                whileTap={{ scale: 0.97 }}
               >
                 Send
-              </button>
+              </motion.button>
             </motion.form>
           </div>
         </SectionShell>

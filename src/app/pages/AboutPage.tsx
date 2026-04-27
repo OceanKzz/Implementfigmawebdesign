@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Navbar } from "../components/Navbar";
+import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroBg = "https://www.figma.com/api/mcp/asset/e30bb743-9456-47b8-bd3d-3d99ad8e5884";
 const whyRings = "https://www.figma.com/api/mcp/asset/9b549c15-297c-4339-938f-203b880c388e";
@@ -57,8 +57,10 @@ function SectionShell({
 }
 
 export function AboutPage() {
+  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+
   return (
-    <div className="w-full overflow-x-hidden bg-white">
+    <div className="w-full overflow-x-clip bg-white">
       <Navbar activeItem="About" />
 
       <motion.section
@@ -333,6 +335,7 @@ export function AboutPage() {
             </motion.div>
 
             <motion.form
+              onSubmit={submitLeadForm}
               className="rounded-[24px] border border-[#e3e3e3] bg-white px-[31px] py-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.12)]"
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -365,10 +368,10 @@ export function AboutPage() {
                 </span>
                 <input className="mt-[6px] h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
+              <LeadFormMessage show={showIncompleteMessage} />
               <button
-                type="button"
-                onClick={openSubmitSuccessModal}
-                className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-[32px] text-[18px] text-white"
+                type="submit"
+                className={leadFormButtonClass}
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >
                 Send

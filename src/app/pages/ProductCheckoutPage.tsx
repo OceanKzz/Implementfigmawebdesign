@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 import { CreditCard, Layers3, Rocket } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroPhone = "https://www.figma.com/api/mcp/asset/71b43f2c-2f52-46f0-a8fc-f59b8c14fe9c";
 const payBca = "https://www.figma.com/api/mcp/asset/e5913d4b-ad0c-4cbd-83a4-2f37142cdca7";
@@ -65,6 +65,7 @@ function SectionShell({
 export function ProductCheckoutPage() {
   const [checkoutMode, setCheckoutMode] = useState<"redirection" | "popup">("redirection");
   const [activeFeatureCard, setActiveFeatureCard] = useState(1);
+  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
 
   const checkoutContent =
     checkoutMode === "redirection"
@@ -403,6 +404,7 @@ export function ProductCheckoutPage() {
             </motion.div>
 
             <motion.form
+              onSubmit={submitLeadForm}
               className="w-full max-w-[464px] rounded-[24px] border border-[#e3e3e3] bg-white px-[31px] py-6"
               initial={{ opacity: 0, x: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -435,10 +437,10 @@ export function ProductCheckoutPage() {
                 </span>
                 <input className="h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
+              <LeadFormMessage show={showIncompleteMessage} />
               <button
-                type="button"
-                onClick={openSubmitSuccessModal}
-                className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-8 text-[18px] font-semibold text-white"
+                type="submit"
+                className={leadFormButtonClass}
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >
                 Send

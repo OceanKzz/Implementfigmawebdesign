@@ -2,8 +2,8 @@ import { motion } from "motion/react";
 import { CheckCircle2, Code2, KeyRound, Plane, ShieldCheck, Wallet } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { openSubmitSuccessModal } from "../components/SubmitSuccessModal";
 
 const heroIllustration = "https://www.figma.com/api/mcp/asset/f5938469-6a20-49b3-8b2e-835c1dd1d265";
 const developerImage = "https://www.figma.com/api/mcp/asset/68ae81aa-8f16-4ce5-8418-fc077da983a4";
@@ -76,6 +76,8 @@ function SectionShell({
 }
 
 export function ProductApiPage() {
+  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+
   return (
     <div className="w-full overflow-x-hidden bg-white">
       <Navbar activeItem="Product" />
@@ -401,6 +403,7 @@ export function ProductApiPage() {
             </motion.div>
 
             <motion.form
+              onSubmit={submitLeadForm}
               className="rounded-[24px] border border-[#e3e3e3] bg-white px-[31px] py-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.12)]"
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -433,10 +436,10 @@ export function ProductApiPage() {
                 </span>
                 <input className="mt-[6px] h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
+              <LeadFormMessage show={showIncompleteMessage} />
               <button
-                type="button"
-                onClick={openSubmitSuccessModal}
-                className="mt-5 inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-[32px] text-[18px] text-white"
+                type="submit"
+                className={leadFormButtonClass}
                 style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}
               >
                 Send
