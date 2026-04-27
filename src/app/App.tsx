@@ -36,6 +36,10 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    document.title = pathname === "/" ? "JalurPay" : `JalurPay${pathname}`;
+  }, [pathname]);
+
   const page = (() => {
   if (pathname === "/about") {
     return <AboutPage />;

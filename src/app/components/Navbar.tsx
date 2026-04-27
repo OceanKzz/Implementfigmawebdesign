@@ -27,13 +27,15 @@ type NavItemLabel = "Home" | "Solutions" | "Product" | "About" | "Contact us" | 
 
 type DropdownLabel = "Solutions" | "Product";
 
+const apiDocsUrl = "https://docs.jalurpay.com";
+
 const navItems: Array<{ label: NavItemLabel; href: string }> = [
   { label: "Home", href: "/" },
   { label: "Solutions", href: "/solutions/smb" },
   { label: "Product", href: "/product/checkout" },
   { label: "About", href: "/about" },
   { label: "Contact us", href: "/contact" },
-  { label: "Explore API", href: "#" },
+  { label: "Explore API", href: apiDocsUrl },
 ];
 
 const dropdownMenus: Record<
