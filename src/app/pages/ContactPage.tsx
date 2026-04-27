@@ -203,7 +203,7 @@ export function ContactPage() {
               <motion.button
                 type="submit"
                 className="flex h-[43px] w-[108px] items-center justify-center rounded-[32px] bg-[#1053f3] text-[17px] text-white self-start relative overflow-hidden"
-                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600, height: 43, minHeight: 43 }}
                 initial={{ scale: 1 }}
                 animate={{ scale: 1 }}
                 whileHover={{ scale: 1.04, backgroundColor: "#0d44d4" }}
