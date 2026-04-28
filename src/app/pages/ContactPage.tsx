@@ -77,7 +77,7 @@ function FormInput({
 }
 
 export function ContactPage() {
-  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+  const { formMessage, showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
 
   return (
     <div className="w-full overflow-x-clip bg-white">
@@ -199,7 +199,7 @@ export function ContactPage() {
                   ))}
                 </div>
               ))}
-              <LeadFormMessage show={showIncompleteMessage} />
+              <LeadFormMessage show={showIncompleteMessage} message={formMessage} />
               <motion.button
                 type="submit"
                 className="flex h-[43px] w-[108px] items-center justify-center rounded-[32px] bg-[#1053f3] text-[17px] text-white self-start relative overflow-hidden"

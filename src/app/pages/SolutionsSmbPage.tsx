@@ -164,7 +164,7 @@ function CountUpStat({ value, suffix, duration = 1600 }: { value: number; suffix
 }
 
 export function SolutionsSmbPage() {
-  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+  const { formMessage, showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
 
   return (
     <div className="w-full overflow-x-hidden bg-white">
@@ -636,7 +636,7 @@ export function SolutionsSmbPage() {
                 </span>
                 <input className="h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
-              <LeadFormMessage show={showIncompleteMessage} />
+              <LeadFormMessage show={showIncompleteMessage} message={formMessage} />
               <button
                 type="submit"
                 className={leadFormButtonClass}

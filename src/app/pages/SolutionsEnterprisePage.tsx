@@ -203,7 +203,7 @@ function SalesChart() {
 }
 
 export function SolutionsEnterprisePage() {
-  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+  const { formMessage, showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
 
   return (
     <div className="w-full overflow-x-hidden bg-white">
@@ -628,7 +628,7 @@ export function SolutionsEnterprisePage() {
                 </span>
                 <input className="h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
-              <LeadFormMessage show={showIncompleteMessage} />
+              <LeadFormMessage show={showIncompleteMessage} message={formMessage} />
               <button type="submit" className={leadFormButtonClass} style={{ fontFamily: '"Poppins:SemiBold", Poppins, sans-serif' }}>
                 Send
               </button>

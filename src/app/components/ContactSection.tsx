@@ -9,7 +9,9 @@ const labelClass = "text-[#1a1a1a] text-[14px] leading-[26px] tracking-[0.14px]"
 
 export function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", source: "", phone: "", message: "" });
-  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+  const { formMessage, showIncompleteMessage, submitLeadForm } = useLeadFormValidation({
+    onSuccess: () => setForm({ name: "", email: "", source: "", phone: "", message: "" }),
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -130,7 +132,7 @@ export function ContactSection() {
               style={{ fontFamily: "Poppins, sans-serif" }} />
           </div>
 
-          <LeadFormMessage show={showIncompleteMessage} />
+          <LeadFormMessage show={showIncompleteMessage} message={formMessage} />
           <motion.button
             type="submit"
             className={`${leadFormButtonClass} self-start relative overflow-hidden`}

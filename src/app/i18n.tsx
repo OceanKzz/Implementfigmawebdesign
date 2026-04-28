@@ -437,13 +437,26 @@ export function TranslationLayer() {
   useEffect(() => {
     translateDom(language);
     const root = document.getElementById("root");
-    if (!root) return;
+    if (!root || language === "en") return;
 
+    let scheduledFrame = 0;
+    const scheduleTranslation = () => {
+      if (scheduledFrame) return;
+      scheduledFrame = window.requestAnimationFrame(() => {
+        scheduledFrame = 0;
+        translateDom(language);
+      });
+    };
     const observer = new MutationObserver(() => {
-      window.requestAnimationFrame(() => translateDom(language));
+      scheduleTranslation();
     });
     observer.observe(root, { childList: true, subtree: true, characterData: true });
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (scheduledFrame) {
+        window.cancelAnimationFrame(scheduledFrame);
+      }
+    };
   }, [language]);
 
   return null;

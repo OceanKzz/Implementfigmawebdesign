@@ -91,9 +91,8 @@ export async function submitUserInfo(payload: UserInfoPayload) {
 export const leadFormButtonClass =
   "inline-flex h-[43px] items-center justify-center rounded-[32px] bg-[#1053f3] px-[32px] text-[17px] font-semibold text-white transition-colors hover:bg-[#0d44d4]";
 
-export function useLeadFormValidation() {
-  const [showIncompleteMessage, setShowIncompleteMessage] = useState(false);
-  const [showSubmitError, setShowSubmitError] = useState(false);
+export function useLeadFormValidation({ onSuccess }: { onSuccess?: () => void } = {}) {
+  const [formMessage, setFormMessage] = useState("");
 
   const submitLeadForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -105,32 +104,31 @@ export function useLeadFormValidation() {
     const hasEmptyField = fields.some((field) => field.value.trim() === "");
 
     if (hasEmptyField) {
-      setShowIncompleteMessage(true);
-      setShowSubmitError(false);
+      setFormMessage("Please complete the form before sending.");
       return;
     }
 
-    setShowIncompleteMessage(false);
-    setShowSubmitError(false);
+    setFormMessage("");
 
     try {
       await submitUserInfo(buildUserInfoPayload(event.currentTarget));
       event.currentTarget.reset();
+      onSuccess?.();
       openSubmitSuccessModal();
     } catch {
-      setShowSubmitError(true);
+      setFormMessage("Submission failed. Please try again.");
     }
   };
 
-  return { showIncompleteMessage: showIncompleteMessage || showSubmitError, submitLeadForm };
+  return { formMessage, showIncompleteMessage: Boolean(formMessage), submitLeadForm };
 }
 
-export function LeadFormMessage({ show }: { show: boolean }) {
+export function LeadFormMessage({ show, message = "Please complete the form before sending." }: { show: boolean; message?: string }) {
   return (
     <div className="min-h-[20px] -mb-3">
       {show && (
         <p className="text-[13px] font-semibold leading-[20px] text-[#d92d20]" style={{ fontFamily: "Inter, sans-serif" }}>
-          Please complete the form before sending.
+          {message}
         </p>
       )}
     </div>

@@ -65,7 +65,7 @@ function SectionShell({
 export function ProductCheckoutPage() {
   const [checkoutMode, setCheckoutMode] = useState<"redirection" | "popup">("redirection");
   const [activeFeatureCard, setActiveFeatureCard] = useState(1);
-  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+  const { formMessage, showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
 
   const checkoutContent =
     checkoutMode === "redirection"
@@ -437,7 +437,7 @@ export function ProductCheckoutPage() {
                 </span>
                 <input className="h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
-              <LeadFormMessage show={showIncompleteMessage} />
+              <LeadFormMessage show={showIncompleteMessage} message={formMessage} />
               <button
                 type="submit"
                 className={leadFormButtonClass}

@@ -66,7 +66,7 @@ function RingPattern({ className = "", light = false }: { className?: string; li
 }
 
 export function AboutPage() {
-  const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
+  const { formMessage, showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
 
   return (
     <div className="w-full overflow-x-clip bg-white">
@@ -377,7 +377,7 @@ export function AboutPage() {
                 </span>
                 <input className="mt-[6px] h-[38px] w-full rounded-[52px] border border-[#1053f3] px-4 outline-none" />
               </label>
-              <LeadFormMessage show={showIncompleteMessage} />
+              <LeadFormMessage show={showIncompleteMessage} message={formMessage} />
               <button
                 type="submit"
                 className={leadFormButtonClass}
