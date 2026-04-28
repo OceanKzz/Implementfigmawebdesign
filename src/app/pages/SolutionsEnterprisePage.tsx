@@ -452,13 +452,13 @@ export function SolutionsEnterprisePage() {
           </div>
 
           <div className="mx-auto mt-10 grid max-w-[1060px] gap-10 rounded-[18px] bg-[#f7f9ff] p-8 lg:grid-cols-[1fr_1fr] lg:gap-[80px] lg:px-[72px] lg:py-[58px]">
-            <div className="space-y-7">
+            <div className="flex h-full flex-col justify-center gap-8 lg:gap-10">
               {operationItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <motion.div
                     key={item.title}
-                    className="flex items-start gap-4 border-b border-[#dfe5f2] pb-7 last:border-b-0 last:pb-0"
+                    className="flex items-start gap-5 border-b border-[#dfe5f2] pb-8 last:border-b-0 last:pb-0 lg:gap-6 lg:pb-9"
                     initial={{ opacity: 0, x: -24 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.45 }}

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import { Landmark, QrCode, Users, WalletCards } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
@@ -18,10 +19,6 @@ const licensedKominfo = "https://www.figma.com/api/mcp/asset/c5f8124f-7eb0-49be-
 const licensedFinance = "https://www.figma.com/api/mcp/asset/fba26bf7-46b3-4339-a23a-bc8248e83fab";
 const licensedDukcapil = "https://www.figma.com/api/mcp/asset/cbd87c1f-66af-436e-8132-5abcc7677ea4";
 const financeGlow = "https://www.figma.com/api/mcp/asset/b3ea1d44-0e49-4c8a-8ba5-13417d1ef4ea";
-const iconVa = "https://www.figma.com/api/mcp/asset/2b001370-4268-4b12-a4a7-d805970dd422";
-const iconQr = "https://www.figma.com/api/mcp/asset/b42181d1-9fa3-4bfc-9495-ddd239d7b278";
-const iconDirectApi = "https://www.figma.com/api/mcp/asset/0ee16085-8d2e-4e2a-92cd-f2b1565feb82";
-const iconBankTransfer = "https://www.figma.com/api/mcp/asset/85bc3041-0edc-49d2-85e9-b71ff8aa3464";
 const contactMask = "https://www.figma.com/api/mcp/asset/4bc93558-a1c5-46db-ae8b-6c009a5063a1";
 const contactBusiness = "https://www.figma.com/api/mcp/asset/a31ec281-a095-4115-b465-99aa814716bc";
 const contactService = "https://www.figma.com/api/mcp/asset/9edba48a-a8ca-48fa-a5cf-26674fadfd55";
@@ -78,25 +75,25 @@ const licensedRight = [
 
 const paymentCards = [
   {
-    icon: iconVa,
+    icon: Users,
     title: "VA",
     description:
       "A Virtual Account is a digital payment method through an account that is created virtually for each customer",
   },
   {
-    icon: iconQr,
+    icon: QrCode,
     title: "QR",
     description:
       "With QRIS integration, you can easily accept payment transactions from various digital wallet applications using only one QR code",
   },
   {
-    icon: iconBankTransfer,
+    icon: Landmark,
     title: "BANK TRANSFER",
     description:
       "We already have very strong partners who can switch payment transactions of multiple banks with one click",
   },
   {
-    icon: iconDirectApi,
+    icon: WalletCards,
     title: "DIRECT API",
     description:
       "Customize the payment page with your business identity and transaction needs in your online store / business application",
@@ -522,7 +519,7 @@ export function SolutionsSmbPage() {
                 whileHover={{ y: -6, boxShadow: "0 24px 50px rgba(16,83,243,0.08)" }}
               >
                 <div className="flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-[20px] bg-[#1053f3]">
-                  <ImageWithFallback src={item.icon} alt="" className="h-[54px] w-[54px] object-contain" />
+                  <item.icon size={30} strokeWidth={2.2} color="#ffffff" />
                 </div>
                 <div>
                   <h3

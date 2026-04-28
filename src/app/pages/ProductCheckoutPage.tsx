@@ -278,10 +278,10 @@ export function ProductCheckoutPage() {
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.55 }}
             >
-              <div className="inline-flex rounded-[8px] border-[1.5px] border-[#dee4f7] bg-[rgba(239,242,251,0.3)] p-2">
+              <div className="grid w-full max-w-[430px] grid-cols-2 rounded-[8px] border-[1.5px] border-[#dee4f7] bg-[rgba(239,242,251,0.3)] p-2">
                 <button
                   type="button"
-                  className={`h-[48px] w-[275px] rounded-[6px] text-[18px] transition-all ${
+                  className={`h-[48px] w-full rounded-[6px] text-[18px] transition-all ${
                     checkoutMode === "redirection"
                       ? "border-2 border-[rgba(14,8,84,0.04)] bg-white font-bold text-[#1053f3] shadow-[0_3px_40px_rgba(14,8,84,0.05)]"
                       : "font-medium text-[#6c727f]"
@@ -293,7 +293,7 @@ export function ProductCheckoutPage() {
                 </button>
                 <button
                   type="button"
-                  className={`h-[48px] w-[155px] rounded-[6px] text-[18px] transition-all ${
+                  className={`h-[48px] w-full rounded-[6px] text-[18px] transition-all ${
                     checkoutMode === "popup"
                       ? "border-2 border-[rgba(14,8,84,0.04)] bg-white font-bold text-[#1053f3] shadow-[0_3px_40px_rgba(14,8,84,0.05)]"
                       : "font-medium text-[#6c727f]"
@@ -309,7 +309,7 @@ export function ProductCheckoutPage() {
                   Pop-up
                 </button>
               </div>
-              <div className="mt-10 max-w-[550px]">
+              <div key={checkoutMode} className="mt-10 max-w-[550px]">
                 <h2
                   className="min-h-[112px] text-[34px] font-bold leading-[1.4] tracking-[-0.4px] text-[#101010] lg:text-[40px]"
                   style={{ fontFamily: '"Plus_Jakarta_Sans:Bold", "Plus Jakarta Sans", sans-serif' }}

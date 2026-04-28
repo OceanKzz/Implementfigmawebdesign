@@ -368,7 +368,8 @@ function translateDom(language: Language) {
 
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
-      if (!node.textContent || !normalizeText(node.textContent)) return NodeFilter.FILTER_REJECT;
+      const text = normalizeText(node.textContent ?? "");
+      if (!text || /^[\d.,+\-%\s]+$/.test(text)) return NodeFilter.FILTER_REJECT;
       const parent = node.parentElement;
       if (
         !parent ||

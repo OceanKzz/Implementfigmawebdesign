@@ -1,5 +1,5 @@
-import { motion, useInView } from "motion/react";
-import { useRef, useState, useEffect } from "react";
+import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 import imgMap from "figma:asset/3f297b6a3ec1658c5c2441934baa003fe2cbc805.png";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
 
@@ -10,36 +10,47 @@ const globalStats = [
   { target: 24,  suffix: "+",  decimals: 0, desc: "More than 30 countries trust our platform" },
 ];
 
-function useCountUp(target: number, decimals: number, duration = 1800) {
-  const ref = useRef<HTMLParagraphElement>(null);
-  const inView = useInView(ref, { once: true, margin: "0px 0px -80px 0px" });
+function useCountUp(target: number, decimals: number, active: boolean, duration = 1800) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!inView) return;
-    const steps = 60;
-    const stepTime = duration / steps;
-    let current = 0;
-    const increment = target / steps;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(parseFloat(current.toFixed(decimals)));
-      }
-    }, stepTime);
-    return () => clearInterval(timer);
-  }, [inView, target, decimals, duration]);
+    if (!active) return;
 
-  return { ref, count };
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      setCount(target);
+      return;
+    }
+
+    let animationFrame = 0;
+    let startTime: number | null = null;
+
+    const animate = (timestamp: number) => {
+      if (startTime === null) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      setCount(Number((target * eased).toFixed(decimals)));
+
+      if (progress < 1) {
+        animationFrame = window.requestAnimationFrame(animate);
+      } else {
+        setCount(target);
+      }
+    };
+
+    animationFrame = window.requestAnimationFrame(animate);
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [active, target, decimals, duration]);
+
+  return count;
 }
 
 function StatItem({ target, suffix, decimals, desc, delay }: {
   target: number; suffix: string; decimals: number; desc: string; delay: number;
 }) {
-  const { ref, count } = useCountUp(target, decimals);
+  const [active, setActive] = useState(false);
+  const count = useCountUp(target, decimals, active);
   const display = decimals > 0 ? count.toFixed(decimals) : Math.round(count).toString();
 
   return (
@@ -47,11 +58,12 @@ function StatItem({ target, suffix, decimals, desc, delay }: {
       className="flex flex-col gap-[4px]"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.25 }}
+      onViewportEnter={() => setActive(true)}
       transition={{ duration: 0.5, delay }}
     >
       <p
-        ref={ref}
+        data-no-translate
         className="text-white text-[28px] lg:text-[36px] leading-[1.3] lg:leading-[46px]"
         style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
       >

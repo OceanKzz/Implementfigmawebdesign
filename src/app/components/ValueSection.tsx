@@ -1,21 +1,21 @@
 import { motion } from "motion/react";
+import { Banknote, Shield, Zap } from "lucide-react";
 import imgImage1 from "figma:asset/b64dc1c924948ddcda3a717d66e99bb0cd0754ee.png";
 import imgAvatar from "figma:asset/1edc9c1cecaecb0afaf338bd8f187f2b9376e5f0.png";
-import svgPaths from "../../imports/svg-9vm3i7iyp0";
 
 const features = [
   {
-    iconPath: svgPaths.p2557fb00,
+    Icon: Zap,
     title: "Faster ways to make transactions",
     desc: "The transaction can be completed in just a few seconds",
   },
   {
-    iconPath: svgPaths.p2e91c880,
+    Icon: Shield,
     title: "Payments can be made securely",
     desc: "Online payments are easier to process, give you more information online, and make processing faster.",
   },
   {
-    iconPath: svgPaths.p34db16c0,
+    Icon: Banknote,
     title: "Alternate sources of currency",
     desc: "If you don't have time for checkout lines, online payments make it easy to whip out your credit or debit card.",
   },
@@ -92,7 +92,10 @@ export function ValueSection() {
 
         {/* Right: Feature list */}
         <div className="flex flex-col gap-4 lg:gap-[24px] lg:pt-[69px] w-full lg:max-w-[480px]">
-          {features.map((feat, i) => (
+          {features.map((feat, i) => {
+            const Icon = feat.Icon;
+
+            return (
             <motion.div
               key={feat.title}
               className="flex gap-[20px] lg:gap-[24px] items-start px-4 lg:px-[24px] py-4 lg:py-[18px]"
@@ -106,10 +109,7 @@ export function ValueSection() {
                 whileHover={{ scale: 1.12, backgroundColor: "#1053f3" }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d={feat.iconPath} stroke="white" strokeWidth="2"
-                    strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <Icon className="size-[24px] text-white" strokeWidth={2.2} />
               </motion.div>
               <div className="flex flex-col gap-[12px] lg:gap-[16px]">
                 <p className="text-[#101010] text-[16px] leading-[1.5]"
@@ -122,7 +122,7 @@ export function ValueSection() {
                 </p>
               </div>
             </motion.div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

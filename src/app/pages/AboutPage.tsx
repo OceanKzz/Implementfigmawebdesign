@@ -4,9 +4,7 @@ import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const heroBg = "https://www.figma.com/api/mcp/asset/e30bb743-9456-47b8-bd3d-3d99ad8e5884";
-const whyRings = "https://www.figma.com/api/mcp/asset/9b549c15-297c-4339-938f-203b880c388e";
 const quoteMark = "https://www.figma.com/api/mcp/asset/371f7fc1-38ca-44d4-aa32-54fd3e84d50f";
-const circlePattern = "https://www.figma.com/api/mcp/asset/1c8bcaeb-cc51-408f-acdf-9e72e0c75b65";
 const codeImage = "https://www.figma.com/api/mcp/asset/08a91ae9-6a10-4dde-8ee1-502e6158bbce";
 const codeButtonIcon = "https://www.figma.com/api/mcp/asset/1d51553d-d7c6-4efd-9612-ee79583441c7";
 const iconStaff = "https://www.figma.com/api/mcp/asset/2aa94a43-c1f0-4218-a30c-02a1ae9167d6";
@@ -56,6 +54,17 @@ function SectionShell({
   return <div className={`mx-auto w-full max-w-[1440px] px-6 lg:px-[120px] ${className}`}>{children}</div>;
 }
 
+function RingPattern({ className = "", light = false }: { className?: string; light?: boolean }) {
+  const borderColor = light ? "rgba(255,255,255,0.34)" : "rgba(16,43,84,0.22)";
+
+  return (
+    <div className={`pointer-events-none absolute hidden aspect-square lg:block ${className}`}>
+      <div className="absolute inset-0 rounded-full border" style={{ borderColor }} />
+      <div className="absolute inset-[17%] rounded-full border" style={{ borderColor }} />
+    </div>
+  );
+}
+
 export function AboutPage() {
   const { showIncompleteMessage, submitLeadForm } = useLeadFormValidation();
 
@@ -92,7 +101,7 @@ export function AboutPage() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.55 }}
       >
-        <ImageWithFallback src={whyRings} alt="" className="pointer-events-none absolute right-[-220px] top-[40px] hidden w-[771px] lg:block" />
+        <RingPattern className="right-[-250px] top-[22px] w-[760px]" />
         <SectionShell className="relative py-16 lg:py-[92px]">
           <h2
             className="max-w-[953px] text-[44px] font-semibold leading-[1.14] tracking-[-1.44px] text-[#0e1926] lg:text-[72px]"
@@ -129,7 +138,7 @@ export function AboutPage() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.55 }}
       >
-        <ImageWithFallback src={circlePattern} alt="" className="pointer-events-none absolute right-[-188px] top-[58px] hidden w-[700px] opacity-85 lg:block" />
+        <RingPattern className="right-[-210px] top-[42px] w-[700px]" light />
         <div className="pointer-events-none absolute right-0 top-[122px] hidden h-px w-[520px] bg-[rgba(255,255,255,0.26)] lg:block" />
         <SectionShell className="relative py-16 lg:py-[120px]">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
