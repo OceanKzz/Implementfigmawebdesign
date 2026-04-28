@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BadgeCheck, Building2, ChevronDown, Globe2, Mail, UserCircle, X } from "lucide-react";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
+import { buildUserInfoPayload, submitUserInfo } from "./LeadFormValidation";
 
 const registerModalEvent = "jalurpay:open-register-modal";
 
@@ -66,10 +67,12 @@ interface RegisterModalProps {
 
 export function RegisterModal({ open, onClose }: RegisterModalProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   useEffect(() => {
     if (!open) {
       setSubmitted(false);
+      setSubmitError(false);
       return;
     }
 
@@ -89,9 +92,17 @@ export function RegisterModal({ open, onClose }: RegisterModalProps) {
     };
   }, [onClose, open]);
 
-  const submitRegistration = (event: FormEvent<HTMLFormElement>) => {
+  const submitRegistration = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+    setSubmitError(false);
+
+    try {
+      await submitUserInfo(buildUserInfoPayload(event.currentTarget));
+      event.currentTarget.reset();
+      setSubmitted(true);
+    } catch {
+      setSubmitError(true);
+    }
   };
 
   return (
@@ -208,8 +219,16 @@ export function RegisterModal({ open, onClose }: RegisterModalProps) {
                   Submit
                 </button>
 
+                <div className="min-h-[20px]">
+                  {submitError && (
+                    <p className="mt-2 text-[13px] font-semibold leading-[20px] text-[#d92d20]" style={{ fontFamily: "Inter, sans-serif" }}>
+                      Submission failed. Please try again.
+                    </p>
+                  )}
+                </div>
+
                 <p
-                  className="mt-[12px] text-[14px] font-normal leading-[1.5] text-[#8e8e93]"
+                  className="mt-[4px] text-[14px] font-normal leading-[1.5] text-[#8e8e93]"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 >
                   After submitting the information, the customer service will send the{" "}
