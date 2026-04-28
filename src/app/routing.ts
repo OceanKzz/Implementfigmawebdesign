@@ -6,6 +6,8 @@ const routes = [
   "/product/checkout",
   "/product/api",
   "/product/qris",
+  "/terms-and-conditions",
+  "/privacy-policy",
 ];
 
 function trimTrailingSlash(path: string) {

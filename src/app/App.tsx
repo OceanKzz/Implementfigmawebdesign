@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { HomePage } from "./pages/HomePage";
+import { LegalPage } from "./pages/LegalPage";
 import { ProductApiPage } from "./pages/ProductApiPage";
 import { ProductCheckoutPage } from "./pages/ProductCheckoutPage";
 import { ProductQrisPage } from "./pages/ProductQrisPage";
@@ -40,36 +41,48 @@ export default function App() {
     document.title = pathname === "/" ? "JalurPay" : `JalurPay${pathname}`;
   }, [pathname]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
   const page = (() => {
-  if (pathname === "/about") {
-    return <AboutPage />;
-  }
+    if (pathname === "/about") {
+      return <AboutPage />;
+    }
 
-  if (pathname === "/contact") {
-    return <ContactPage />;
-  }
+    if (pathname === "/contact") {
+      return <ContactPage />;
+    }
 
-  if (pathname === "/solutions/smb") {
-    return <SolutionsSmbPage />;
-  }
+    if (pathname === "/solutions/smb") {
+      return <SolutionsSmbPage />;
+    }
 
-  if (pathname === "/solutions/enterprise") {
-    return <SolutionsEnterprisePage />;
-  }
+    if (pathname === "/solutions/enterprise") {
+      return <SolutionsEnterprisePage />;
+    }
 
-  if (pathname === "/product/checkout") {
-    return <ProductCheckoutPage />;
-  }
+    if (pathname === "/product/checkout") {
+      return <ProductCheckoutPage />;
+    }
 
-  if (pathname === "/product/api") {
-    return <ProductApiPage />;
-  }
+    if (pathname === "/product/api") {
+      return <ProductApiPage />;
+    }
 
-  if (pathname === "/product/qris") {
-    return <ProductQrisPage />;
-  }
+    if (pathname === "/product/qris") {
+      return <ProductQrisPage />;
+    }
 
-  return <HomePage />;
+    if (pathname === "/terms-and-conditions") {
+      return <LegalPage kind="terms" />;
+    }
+
+    if (pathname === "/privacy-policy") {
+      return <LegalPage kind="privacy" />;
+    }
+
+    return <HomePage />;
   })();
 
   return (

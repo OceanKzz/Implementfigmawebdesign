@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import svgPaths from "../../imports/svg-9vm3i7iyp0";
+import { appHref } from "../routing";
 
 export function Footer() {
   return (
@@ -85,15 +86,18 @@ export function Footer() {
             © Jalur Pay by <span style={{ fontWeight: 700 }}>Jalur Pay Inc.</span>
           </p>
           <div className="flex gap-6 lg:gap-[45px] items-center">
-            {["Terms & Conditions", "Privacy Policy"].map((link) => (
+            {[
+              { label: "Terms & Conditions", href: "/terms-and-conditions" },
+              { label: "Privacy Policy", href: "/privacy-policy" },
+            ].map((link) => (
               <motion.a
-                key={link}
-                href="#"
+                key={link.label}
+                href={appHref(link.href)}
                 className="text-white text-[14px] lg:text-[16px] hover:underline"
                 style={{ fontFamily: "Inter, sans-serif", fontWeight: 400 }}
                 whileHover={{ opacity: 0.8 }}
               >
-                {link}
+                {link.label}
               </motion.a>
             ))}
           </div>
