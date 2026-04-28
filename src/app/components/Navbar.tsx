@@ -27,7 +27,7 @@ type NavItemLabel = "Home" | "Solutions" | "Product" | "About" | "Contact us" | 
 
 type DropdownLabel = "Solutions" | "Product";
 
-const apiDocsUrl = "https://docs.jalurpay.com";
+const apiDocsUrl = "https://docs.jalurpay.com/";
 
 const navItems: Array<{ label: NavItemLabel; href: string }> = [
   { label: "Home", href: "/" },
