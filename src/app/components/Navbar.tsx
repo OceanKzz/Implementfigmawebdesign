@@ -284,7 +284,7 @@ export function Navbar({ activeItem = "Home" }: NavbarProps) {
             whileHover={{ scale: 1.04, backgroundColor: "#0d44d4" }}
             whileTap={{ scale: 0.97 }}
           >
-            Sign In
+            Register
           </motion.button>
         </div>
       </div>
@@ -372,7 +372,7 @@ export function Navbar({ activeItem = "Home" }: NavbarProps) {
             onClick={openRegisterModal}
             whileTap={{ scale: 0.97 }}
           >
-            Sign In
+            Register
           </motion.button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
