@@ -23,11 +23,9 @@ function LogoSVG() {
   );
 }
 
-type NavItemLabel = "Home" | "Solutions" | "Product" | "About" | "Contact us" | "Explore API";
+type NavItemLabel = "Home" | "Solutions" | "Product" | "About" | "Contact us";
 
 type DropdownLabel = "Solutions" | "Product";
-
-const apiDocsUrl = "https://docs.jalurpay.com/";
 
 const navItems: Array<{ label: NavItemLabel; href: string }> = [
   { label: "Home", href: "/" },
@@ -35,7 +33,6 @@ const navItems: Array<{ label: NavItemLabel; href: string }> = [
   { label: "Product", href: "/product/checkout" },
   { label: "About", href: "/about" },
   { label: "Contact us", href: "/contact" },
-  { label: "Explore API", href: apiDocsUrl },
 ];
 
 const dropdownMenus: Record<
@@ -152,59 +149,56 @@ export function Navbar({ activeItem = "Home" }: NavbarProps) {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {/* Desktop nav */}
-      <div className="hidden lg:flex max-w-[1440px] mx-auto w-full px-[120px] h-[114px] items-center justify-between">
-        <div className="flex items-center gap-[52px]">
-          <div className="shrink-0">
-            <a href={appHref("/")} aria-label="JalurPay home" className="block">
-              <LogoSVG />
-            </a>
-          </div>
-          <nav className="flex gap-[32px] items-center">
-            {navItems.map((item) => (
-              <motion.div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => {
-                  if (item.label === "Solutions" || item.label === "Product") {
-                    openDropdownMenu(item.label);
-                  } else {
-                    scheduleCloseDropdown();
-                  }
-                }}
-                onMouseLeave={() => {
-                  if (item.label === "Solutions" || item.label === "Product") {
-                    scheduleCloseDropdown();
-                  }
-                }}
-                whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+      <div className="hidden lg:grid max-w-[1440px] mx-auto w-full grid-cols-[auto_1fr_auto] gap-8 px-[120px] h-[114px] items-center">
+        <a href={appHref("/")} aria-label="JalurPay home" className="block shrink-0">
+          <LogoSVG />
+        </a>
+
+        <nav className="flex justify-center gap-[32px] items-center">
+          {navItems.map((item) => (
+            <motion.div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => {
+                if (item.label === "Solutions" || item.label === "Product") {
+                  openDropdownMenu(item.label);
+                } else {
+                  scheduleCloseDropdown();
+                }
+              }}
+              onMouseLeave={() => {
+                if (item.label === "Solutions" || item.label === "Product") {
+                  scheduleCloseDropdown();
+                }
+              }}
+              whileHover={{ y: -2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            >
+              <a
+                href={appHref(item.href)}
+                className={`flex items-center gap-1 text-[16px] leading-[1.5] transition-colors ${
+                  item.label === activeItem || openDropdown === item.label
+                    ? "font-bold text-[#1053f3]"
+                    : "font-normal text-[#757b8a] hover:text-[#1053f3]"
+                }`}
+                style={{ fontFamily: "Inter, sans-serif" }}
               >
-                <a
-                  href={appHref(item.href)}
-                  className={`flex items-center gap-1 text-[16px] leading-[1.5] transition-colors ${
-                    item.label === activeItem || openDropdown === item.label
-                      ? "font-bold text-[#1053f3]"
-                      : "font-normal text-[#757b8a] hover:text-[#1053f3]"
-                  }`}
-                  style={{ fontFamily: "Inter, sans-serif" }}
-                >
-                  {item.label}
-                  {(item.label === "Solutions" || item.label === "Product") && (
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 18 18"
-                      fill="none"
-                      className={`transition-transform ${openDropdown === item.label ? "rotate-[-90deg]" : "rotate-90"}`}
-                    >
-                      <path d={svgPaths.p1ad1800} fill={item.label === activeItem || openDropdown === item.label ? "#1053f3" : "#757b8a"} />
-                    </svg>
-                  )}
-                </a>
-              </motion.div>
-            ))}
-          </nav>
-        </div>
+                {item.label}
+                {(item.label === "Solutions" || item.label === "Product") && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    className={`transition-transform ${openDropdown === item.label ? "rotate-[-90deg]" : "rotate-90"}`}
+                  >
+                    <path d={svgPaths.p1ad1800} fill={item.label === activeItem || openDropdown === item.label ? "#1053f3" : "#757b8a"} />
+                  </svg>
+                )}
+              </a>
+            </motion.div>
+          ))}
+        </nav>
 
         <div className="flex items-center gap-[15px]">
           <motion.div

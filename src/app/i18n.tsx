@@ -18,7 +18,6 @@ const translations: Record<string, string> = {
   Product: "Produk",
   About: "Tentang",
   "Contact us": "Hubungi kami",
-  "Explore API": "Jelajahi API",
   "Small Medium Business": "Usaha Kecil dan Menengah",
   Enterprise: "Enterprise",
   Checkout: "Checkout",
