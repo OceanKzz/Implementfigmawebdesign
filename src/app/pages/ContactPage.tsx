@@ -3,19 +3,19 @@ import { Navbar } from "../components/Navbar";
 import { LeadFormMessage, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-const heroImage = "https://www.figma.com/api/mcp/asset/a849ee4f-2dc8-4f04-b171-811b32804b2a";
-const contactWave = "https://www.figma.com/api/mcp/asset/0d47233e-1da3-424b-b79d-d492bdd12791";
-const contactDots = "https://www.figma.com/api/mcp/asset/ab28efec-9f40-4cde-a5fe-cf57fc413109";
-const ornamentLeft = "https://www.figma.com/api/mcp/asset/9bbc62f9-07a4-476e-bce2-19f31f1e8094";
-const ornamentRight = "https://www.figma.com/api/mcp/asset/9144a398-ee75-4572-a7e8-00576955ecf2";
-const iconBusiness = "https://www.figma.com/api/mcp/asset/bc3ff974-f03e-438c-a026-f996717566b1";
-const iconService = "https://www.figma.com/api/mcp/asset/97418475-74f1-4dfb-8736-53a4ea58fcba";
-const footerBg = "https://www.figma.com/api/mcp/asset/5e64f5ad-ea13-4f73-b0ad-71e487fa612e";
-const footerArc = "https://www.figma.com/api/mcp/asset/02fdc358-0a38-44e4-8380-7af2367240c8";
-const footerDivider = "https://www.figma.com/api/mcp/asset/e40f0e9e-0b75-4f77-8384-20c8a42b46bc";
-const addressIcon = "https://www.figma.com/api/mcp/asset/04411882-468f-474d-9121-ce9bbd528ad1";
-const emailRing = "https://www.figma.com/api/mcp/asset/7b30c274-8752-4615-9545-32ff93bde8ac";
-const emailIcon = "https://www.figma.com/api/mcp/asset/8720e031-bfdd-4abd-aca0-51ac077a82bf";
+const heroImage = "/figma-assets/contact-hero.jpg";
+const contactWave = "/figma-assets/contact-wave.svg";
+const contactDots = "/figma-assets/contact-dots.png";
+const ornamentLeft = "/figma-assets/contact-ornament-left.svg";
+const ornamentRight = "/figma-assets/contact-ornament-right.svg";
+const iconBusiness = "/figma-assets/contact-icon-business.svg";
+const iconService = "/figma-assets/contact-icon-service.svg";
+const footerBg = "/figma-assets/contact-footer-bg.svg";
+const footerArc = "/figma-assets/contact-footer-arc.svg";
+const footerDivider = "/figma-assets/contact-footer-divider.svg";
+const addressIcon = "/figma-assets/contact-address.svg";
+const emailRing = "/figma-assets/contact-email-ring.svg";
+const emailIcon = "/figma-assets/contact-email.svg";
 
 const formFields = [
   ["Name", "Corporate email"],

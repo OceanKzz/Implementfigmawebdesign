@@ -4,7 +4,7 @@ import imgCreditCardMockup from "figma:asset/d611d324fb27016cbeedb04e867db1df6de
 import imgImage from "figma:asset/eced62f9d681f416a2dfb4f294652f7b294e8de5.png";
 import imgUnsplashRDeoVtE7VOs from "figma:asset/1edc9c1cecaecb0afaf338bd8f187f2b9376e5f0.png";
 import imgIndonesiaLowPixels111 from "figma:asset/3f297b6a3ec1658c5c2441934baa003fe2cbc805.png";
-import imgImage1 from "figma:asset/b64dc1c924948ddcda3a717d66e99bb0cd0754ee.png";
+import imgImage1 from "figma:asset/b64dc1c924948ddcda3a717d66e99bb0cd0754ee.jpg";
 
 function NumberAndText() {
   return (

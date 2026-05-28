@@ -5,20 +5,20 @@ import { Footer } from "../components/Footer";
 import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-const heroIllustration = "https://www.figma.com/api/mcp/asset/f5938469-6a20-49b3-8b2e-835c1dd1d265";
-const developerImage = "https://www.figma.com/api/mcp/asset/68ae81aa-8f16-4ce5-8418-fc077da983a4";
-const developerOverlay = "https://www.figma.com/api/mcp/asset/ea2fbab5-91f1-4c31-8dc9-249aedd1bf17";
-const flowImage = "https://www.figma.com/api/mcp/asset/ec5b0cb3-dda1-4269-a662-599be74537d2";
-const stepsWaveImage = "https://www.figma.com/api/mcp/asset/a5d016d4-5bb7-4f2c-9c80-694fc3aac487";
+const heroIllustration = "/figma-assets/api-hero.png";
+const developerImage = "/figma-assets/api-developer.png";
+const developerOverlay = "/figma-assets/api-developer-overlay.png";
+const flowImage = "/figma-assets/api-flow.png";
+const stepsWaveImage = "/figma-assets/api-steps-wave.png";
 
-const payBca = "https://www.figma.com/api/mcp/asset/e5913d4b-ad0c-4cbd-83a4-2f37142cdca7";
-const payBni = "https://www.figma.com/api/mcp/asset/8afc2759-5c8f-43e7-9741-434a76d05814";
-const payBri = "https://www.figma.com/api/mcp/asset/37ce8456-7a58-4194-9d26-880946573585";
-const payQris = "https://www.figma.com/api/mcp/asset/e589d8e8-d95b-42ec-9abb-c2cff71362c6";
-const payMandiri = "https://www.figma.com/api/mcp/asset/2bb3eae0-2737-4aac-8d08-5bb205e8fcdb";
-const payDana = "https://www.figma.com/api/mcp/asset/791dc145-ae49-4bbc-8094-fdcdad068625";
-const contactBusinessIcon = "https://www.figma.com/api/mcp/asset/fa4b02a6-3793-4cc4-8837-d2c065dd2074";
-const contactServiceIcon = "https://www.figma.com/api/mcp/asset/052e568d-cf06-4d9a-8785-970db2a1f1c0";
+const payBca = "/figma-assets/pay-logo-1.svg";
+const payBni = "/figma-assets/pay-logo-2.svg";
+const payBri = "/figma-assets/pay-logo-4.svg";
+const payQris = "/figma-assets/pay-logo-5.svg";
+const payMandiri = "/figma-assets/pay-logo-3.svg";
+const payDana = "/figma-assets/pay-logo-6.png";
+const contactBusinessIcon = "/figma-assets/api-contact-business.svg";
+const contactServiceIcon = "/figma-assets/api-contact-service.svg";
 
 const controlItems = [
   {

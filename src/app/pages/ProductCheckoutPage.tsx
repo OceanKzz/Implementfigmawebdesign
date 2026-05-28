@@ -6,21 +6,21 @@ import { Footer } from "../components/Footer";
 import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-const heroPhone = "https://www.figma.com/api/mcp/asset/71b43f2c-2f52-46f0-a8fc-f59b8c14fe9c";
-const payBca = "https://www.figma.com/api/mcp/asset/e5913d4b-ad0c-4cbd-83a4-2f37142cdca7";
-const payBni = "https://www.figma.com/api/mcp/asset/8afc2759-5c8f-43e7-9741-434a76d05814";
-const payBri = "https://www.figma.com/api/mcp/asset/37ce8456-7a58-4194-9d26-880946573585";
-const payQris = "https://www.figma.com/api/mcp/asset/e589d8e8-d95b-42ec-9abb-c2cff71362c6";
-const payMandiri = "https://www.figma.com/api/mcp/asset/2bb3eae0-2737-4aac-8d08-5bb205e8fcdb";
-const payDana = "https://www.figma.com/api/mcp/asset/791dc145-ae49-4bbc-8094-fdcdad068625";
-const businessImage = "https://www.figma.com/api/mcp/asset/d757e816-ca50-4971-ab59-e54bea813030";
-const howItWorksMask = "https://www.figma.com/api/mcp/asset/a1584190-c731-488b-89a7-82d6ff78a640";
-const howItWorksImage = "https://www.figma.com/api/mcp/asset/d54290ad-8994-4805-a131-754e474f2f79";
-const ellipseGlow = "https://www.figma.com/api/mcp/asset/29194902-6434-4ab8-9c51-93946fff7b09";
-const ellipseGlow2 = "https://www.figma.com/api/mcp/asset/e9f819f6-2128-405c-b86a-01d1ad145ef4";
-const contactMask = "https://www.figma.com/api/mcp/asset/1f1d99a6-ea0c-411d-b37b-91956e8d4314";
-const contactBusiness = "https://www.figma.com/api/mcp/asset/3ff04e58-c651-4a6a-a3fb-5fbcb6ead581";
-const contactService = "https://www.figma.com/api/mcp/asset/87abd23a-2ba8-4c67-9618-96215b71191f";
+const heroPhone = "/figma-assets/checkout-hero-phone.png";
+const payBca = "/figma-assets/pay-logo-1.svg";
+const payBni = "/figma-assets/pay-logo-2.svg";
+const payBri = "/figma-assets/pay-logo-4.svg";
+const payQris = "/figma-assets/pay-logo-5.svg";
+const payMandiri = "/figma-assets/pay-logo-3.svg";
+const payDana = "/figma-assets/pay-logo-6.png";
+const businessImage = "/figma-assets/checkout-business.png";
+const howItWorksMask = "/figma-assets/checkout-how-mask.png";
+const howItWorksImage = "/figma-assets/checkout-how-image.png";
+const ellipseGlow = "/figma-assets/checkout-glow-1.svg";
+const ellipseGlow2 = "/figma-assets/checkout-glow-2.svg";
+const contactMask = "/figma-assets/checkout-contact-mask.svg";
+const contactBusiness = "/figma-assets/checkout-contact-business.svg";
+const contactService = "/figma-assets/checkout-contact-service.svg";
 
 const supportedPayments = [
   { src: payBca, alt: "BCA", box: "h-[42px] w-[144px]" },

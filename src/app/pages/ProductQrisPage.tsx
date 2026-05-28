@@ -5,21 +5,21 @@ import { Footer } from "../components/Footer";
 import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-const heroImage = "https://www.figma.com/api/mcp/asset/5ad4cb30-b227-40d5-9ed9-32c13c9fd4e0";
-const featureImage = "https://www.figma.com/api/mcp/asset/b0744cff-fce0-49a1-8425-7cba7c509f57";
-const channelsRegister = "https://www.figma.com/api/mcp/asset/84108814-661b-4c71-9c69-74d02a537f03";
-const channelsVerification = "https://www.figma.com/api/mcp/asset/3200a56d-3e47-488d-9f34-87f16691ce4b";
-const channelsStart = "https://www.figma.com/api/mcp/asset/8bcc7745-9f60-40bc-95db-0be7193a9119";
-const ellipseGlow = "https://www.figma.com/api/mcp/asset/e5b02e0d-9883-4abe-923f-312fbfb22d86";
-const logoBca = "https://www.figma.com/api/mcp/asset/e5913d4b-ad0c-4cbd-83a4-2f37142cdca7";
-const logoBni = "https://www.figma.com/api/mcp/asset/8afc2759-5c8f-43e7-9741-434a76d05814";
-const logoMandiri = "https://www.figma.com/api/mcp/asset/2bb3eae0-2737-4aac-8d08-5bb205e8fcdb";
-const logoBri = "https://www.figma.com/api/mcp/asset/37ce8456-7a58-4194-9d26-880946573585";
-const logoQris = "https://www.figma.com/api/mcp/asset/e589d8e8-d95b-42ec-9abb-c2cff71362c6";
-const logoDana = "https://www.figma.com/api/mcp/asset/791dc145-ae49-4bbc-8094-fdcdad068625";
-const contactMask = "https://www.figma.com/api/mcp/asset/f820e1c5-ceeb-42a5-a7c6-02ba5bbda681";
-const contactBusiness = "https://www.figma.com/api/mcp/asset/0725de19-0011-4088-b4f3-debdc1c8dba3";
-const contactService = "https://www.figma.com/api/mcp/asset/54c53c53-4359-4e7d-ba5d-10af6b52a60d";
+const heroImage = "/figma-assets/qris-hero.png";
+const featureImage = "/figma-assets/qris-feature.png";
+const channelsRegister = "/figma-assets/qris-channel-register.svg";
+const channelsVerification = "/figma-assets/qris-channel-verification.svg";
+const channelsStart = "/figma-assets/qris-channel-start.svg";
+const ellipseGlow = "/figma-assets/qris-glow.svg";
+const logoBca = "/figma-assets/pay-logo-1.svg";
+const logoBni = "/figma-assets/pay-logo-2.svg";
+const logoMandiri = "/figma-assets/pay-logo-3.svg";
+const logoBri = "/figma-assets/pay-logo-4.svg";
+const logoQris = "/figma-assets/pay-logo-5.svg";
+const logoDana = "/figma-assets/pay-logo-6.png";
+const contactMask = "/figma-assets/qris-contact-mask.svg";
+const contactBusiness = "/figma-assets/qris-contact-business.svg";
+const contactService = "/figma-assets/qris-contact-service.svg";
 
 const channelCards = [
   {

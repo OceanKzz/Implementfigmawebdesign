@@ -3,24 +3,24 @@ import { Navbar } from "../components/Navbar";
 import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-const heroBg = "https://www.figma.com/api/mcp/asset/e30bb743-9456-47b8-bd3d-3d99ad8e5884";
-const quoteMark = "https://www.figma.com/api/mcp/asset/371f7fc1-38ca-44d4-aa32-54fd3e84d50f";
-const codeImage = "https://www.figma.com/api/mcp/asset/08a91ae9-6a10-4dde-8ee1-502e6158bbce";
-const codeButtonIcon = "https://www.figma.com/api/mcp/asset/1d51553d-d7c6-4efd-9612-ee79583441c7";
-const iconStaff = "https://www.figma.com/api/mcp/asset/2aa94a43-c1f0-4218-a30c-02a1ae9167d6";
-const iconServices = "https://www.figma.com/api/mcp/asset/89d832be-9932-492b-ada1-db3c646c6a01";
-const iconPolicy = "https://www.figma.com/api/mcp/asset/b3ad6624-d029-4555-af9f-ebaf2ea59bb0";
-const testimonialImage = "https://www.figma.com/api/mcp/asset/0c55cea9-1321-40c5-b5e4-e24e356eb04e";
-const productsBand = "https://www.figma.com/api/mcp/asset/f1228f74-bb5e-4ef0-ad89-1b17be371389";
-const contactMask = "https://www.figma.com/api/mcp/asset/da8da538-69c4-455e-9a2e-19e85ba4d6f5";
-const contactBusiness = "https://www.figma.com/api/mcp/asset/2e2849ad-39f1-4474-92e8-35e1df982b89";
-const contactService = "https://www.figma.com/api/mcp/asset/45de6d21-9938-42fb-924b-56328da3c23a";
-const footerBg = "https://www.figma.com/api/mcp/asset/e82b8e70-7140-4d31-81f5-37db4d45961d";
-const footerArc = "https://www.figma.com/api/mcp/asset/7a0781ad-aba0-45a3-af19-d12de65a7e90";
-const footerDivider = "https://www.figma.com/api/mcp/asset/0d246af8-e063-4af2-a382-6469de2f2d34";
-const footerAddress = "https://www.figma.com/api/mcp/asset/0e8b9f55-666e-4f93-9682-0e9c809e0a8b";
-const footerEmailRing = "https://www.figma.com/api/mcp/asset/d816c3b4-2bb3-4766-b269-5423fc72f580";
-const footerEmail = "https://www.figma.com/api/mcp/asset/89cc7923-c33f-48fd-9720-f7de5b08ccd0";
+const heroBg = "/figma-assets/about-hero-bg.png";
+const quoteMark = "/figma-assets/about-quote-mark.svg";
+const codeImage = "/figma-assets/about-code-image.png";
+const codeButtonIcon = "/figma-assets/about-code-button-icon.svg";
+const iconStaff = "/figma-assets/about-icon-staff.svg";
+const iconServices = "/figma-assets/about-icon-services.svg";
+const iconPolicy = "/figma-assets/about-icon-policy.svg";
+const testimonialImage = "/figma-assets/about-testimonial.png";
+const productsBand = "/figma-assets/about-products-band.png";
+const contactMask = "/figma-assets/about-contact-mask.svg";
+const contactBusiness = "/figma-assets/about-contact-business.svg";
+const contactService = "/figma-assets/about-contact-service.svg";
+const footerBg = "/figma-assets/footer-bg.svg";
+const footerArc = "/figma-assets/footer-arc.svg";
+const footerDivider = "/figma-assets/footer-divider.svg";
+const footerAddress = "/figma-assets/footer-address.svg";
+const footerEmailRing = "/figma-assets/footer-email-ring.svg";
+const footerEmail = "/figma-assets/footer-email.svg";
 
 const blueCards = [
   {

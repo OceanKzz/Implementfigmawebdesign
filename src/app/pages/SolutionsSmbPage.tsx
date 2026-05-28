@@ -6,22 +6,22 @@ import { Footer } from "../components/Footer";
 import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-const heroImage = "https://www.figma.com/api/mcp/asset/dd615769-7ab2-4340-a2be-7dd0fe47e28d";
-const featuresImage = "https://www.figma.com/api/mcp/asset/8d4f4acc-0ea4-4168-bd00-6d298a19d97b";
-const teamMemberA = "https://www.figma.com/api/mcp/asset/dfcd75eb-7a21-4469-9f2a-dbda84e1767a";
-const teamMemberB = "https://www.figma.com/api/mcp/asset/0d93e48b-610d-4db2-8f5c-8795363776aa";
-const teamMemberC = "https://www.figma.com/api/mcp/asset/af4297ea-ab2f-4ab2-b3ff-109fce5400c1";
-const licensedCentralBank = "https://www.figma.com/api/mcp/asset/977e8f52-5700-44df-9d49-63d3cf8e43c5";
-const licensedAes = "https://www.figma.com/api/mcp/asset/f3862aed-7262-4fa2-affc-81c8a0bfd181";
-const licensedPci = "https://www.figma.com/api/mcp/asset/135501a6-224a-4c3d-b062-1579fcadc2cc";
-const licensedIso = "https://www.figma.com/api/mcp/asset/1be1e779-0fcb-46d6-ad11-832a1e14bc36";
-const licensedKominfo = "https://www.figma.com/api/mcp/asset/c5f8124f-7eb0-49be-ab5d-9aa3a4b50934";
-const licensedFinance = "https://www.figma.com/api/mcp/asset/fba26bf7-46b3-4339-a23a-bc8248e83fab";
-const licensedDukcapil = "https://www.figma.com/api/mcp/asset/cbd87c1f-66af-436e-8132-5abcc7677ea4";
-const financeGlow = "https://www.figma.com/api/mcp/asset/b3ea1d44-0e49-4c8a-8ba5-13417d1ef4ea";
-const contactMask = "https://www.figma.com/api/mcp/asset/4bc93558-a1c5-46db-ae8b-6c009a5063a1";
-const contactBusiness = "https://www.figma.com/api/mcp/asset/a31ec281-a095-4115-b465-99aa814716bc";
-const contactService = "https://www.figma.com/api/mcp/asset/9edba48a-a8ca-48fa-a5cf-26674fadfd55";
+const heroImage = "/figma-assets/smb-hero.png";
+const featuresImage = "/figma-assets/smb-feature.png";
+const teamMemberA = "/figma-assets/smb-team-a.png";
+const teamMemberB = "/figma-assets/smb-team-b.png";
+const teamMemberC = "/figma-assets/smb-team-c.png";
+const licensedCentralBank = "/figma-assets/license-central-bank.png";
+const licensedAes = "/figma-assets/license-aes.png";
+const licensedPci = "/figma-assets/license-pci.png";
+const licensedIso = "/figma-assets/license-iso.png";
+const licensedKominfo = "/figma-assets/license-kominfo.png";
+const licensedFinance = "/figma-assets/license-finance.png";
+const licensedDukcapil = "/figma-assets/license-dukcapil.png";
+const financeGlow = "/figma-assets/smb-finance-glow.svg";
+const contactMask = "/figma-assets/smb-contact-mask.svg";
+const contactBusiness = "/figma-assets/smb-contact-business.svg";
+const contactService = "/figma-assets/smb-contact-service.svg";
 
 const stats = [
   { value: 1000, suffix: "k+", label: "Merchants" },

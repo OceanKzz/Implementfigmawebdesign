@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Banknote, Shield, Zap } from "lucide-react";
-import imgImage1 from "figma:asset/b64dc1c924948ddcda3a717d66e99bb0cd0754ee.png";
+import imgImage1 from "figma:asset/b64dc1c924948ddcda3a717d66e99bb0cd0754ee.jpg";
 import imgAvatar from "figma:asset/1edc9c1cecaecb0afaf338bd8f187f2b9376e5f0.png";
 
 const features = [

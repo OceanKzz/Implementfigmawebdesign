@@ -6,24 +6,24 @@ import { Footer } from "../components/Footer";
 import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-const heroImage = "https://www.figma.com/api/mcp/asset/e5cf77ff-e57d-4b6b-b978-1b38e94d4612";
-const featureMark = "https://www.figma.com/api/mcp/asset/5f87470b-2c42-4daa-997e-30f4d03370f8";
-const statsUpArrow = "https://www.figma.com/api/mcp/asset/2960052e-636a-4cca-a975-e032fecaa3cd";
-const bankBca = "https://www.figma.com/api/mcp/asset/dfcc7e9b-1719-4794-bf48-c85d628dba56";
-const bankBni = "https://www.figma.com/api/mcp/asset/4d4344b9-fce1-47f8-9de1-690756978c5c";
-const bankMandiri = "https://www.figma.com/api/mcp/asset/31a06ab5-c729-49d4-bac6-9d17f778792d";
-const walletOvo = "https://www.figma.com/api/mcp/asset/e0b4e2d2-8064-45e2-b8d5-309629541ab5";
-const walletDana = "https://www.figma.com/api/mcp/asset/60792aa7-d350-4b92-97a2-4c938bca0c20";
-const walletLinkAja = "https://www.figma.com/api/mcp/asset/19479f97-7752-4575-84c8-8f429be8799f";
-const logoBca = "https://www.figma.com/api/mcp/asset/e5913d4b-ad0c-4cbd-83a4-2f37142cdca7";
-const logoBni = "https://www.figma.com/api/mcp/asset/8afc2759-5c8f-43e7-9741-434a76d05814";
-const logoMandiri = "https://www.figma.com/api/mcp/asset/2bb3eae0-2737-4aac-8d08-5bb205e8fcdb";
-const logoBri = "https://www.figma.com/api/mcp/asset/37ce8456-7a58-4194-9d26-880946573585";
-const logoQris = "https://www.figma.com/api/mcp/asset/e589d8e8-d95b-42ec-9abb-c2cff71362c6";
-const logoDana = "https://www.figma.com/api/mcp/asset/791dc145-ae49-4bbc-8094-fdcdad068625";
-const contactMask = "https://www.figma.com/api/mcp/asset/e6f56c6a-b473-4dd6-89d1-ba79f866bda8";
-const contactBusiness = "https://www.figma.com/api/mcp/asset/7642c36c-079a-4941-b302-2788032e6893";
-const contactService = "https://www.figma.com/api/mcp/asset/e307ad6c-5cb7-42eb-9f3a-31ee20e66b09";
+const heroImage = "/figma-assets/enterprise-hero.png";
+const featureMark = "/figma-assets/enterprise-feature-mark.svg";
+const statsUpArrow = "/figma-assets/enterprise-stats-arrow.svg";
+const bankBca = "/figma-assets/enterprise-bank-bca.svg";
+const bankBni = "/figma-assets/enterprise-bank-bni.svg";
+const bankMandiri = "/figma-assets/enterprise-bank-mandiri.svg";
+const walletOvo = "/figma-assets/enterprise-wallet-ovo.svg";
+const walletDana = "/figma-assets/enterprise-wallet-dana.svg";
+const walletLinkAja = "/figma-assets/enterprise-wallet-linkaja.svg";
+const logoBca = "/figma-assets/pay-logo-1.svg";
+const logoBni = "/figma-assets/pay-logo-2.svg";
+const logoMandiri = "/figma-assets/pay-logo-3.svg";
+const logoBri = "/figma-assets/pay-logo-4.svg";
+const logoQris = "/figma-assets/pay-logo-5.svg";
+const logoDana = "/figma-assets/pay-logo-6.png";
+const contactMask = "/figma-assets/enterprise-contact-mask.svg";
+const contactBusiness = "/figma-assets/enterprise-contact-business.svg";
+const contactService = "/figma-assets/enterprise-contact-service.svg";
 
 const stats = [
   { value: 1000, suffix: "k+", label: "Merchants" },
