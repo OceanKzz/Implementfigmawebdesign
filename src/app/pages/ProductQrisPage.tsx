@@ -6,7 +6,7 @@ import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const heroImage = "/figma-assets/qris-hero.png";
-const featureImage = "/figma-assets/qris-feature.png";
+const featureImage = "/figma-assets/qris-feature.jpg";
 const channelsRegister = "/figma-assets/qris-channel-register.svg";
 const channelsVerification = "/figma-assets/qris-channel-verification.svg";
 const channelsStart = "/figma-assets/qris-channel-start.svg";

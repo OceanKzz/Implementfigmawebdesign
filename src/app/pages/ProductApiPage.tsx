@@ -6,9 +6,9 @@ import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const heroIllustration = "/figma-assets/api-hero.png";
-const developerImage = "/figma-assets/api-developer.png";
-const developerOverlay = "/figma-assets/api-developer-overlay.png";
-const flowImage = "/figma-assets/api-flow.png";
+const developerImage = "/figma-assets/api-developer.jpg";
+const developerOverlay = "/figma-assets/api-developer-overlay.jpg";
+const flowImage = "/figma-assets/api-flow.jpg";
 const stepsWaveImage = "/figma-assets/api-steps-wave.png";
 
 const payBca = "/figma-assets/pay-logo-1.svg";

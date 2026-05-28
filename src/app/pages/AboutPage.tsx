@@ -3,14 +3,14 @@ import { Navbar } from "../components/Navbar";
 import { LeadFormMessage, leadFormButtonClass, useLeadFormValidation } from "../components/LeadFormValidation";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-const heroBg = "/figma-assets/about-hero-bg.png";
+const heroBg = "/figma-assets/about-hero-bg.jpg";
 const quoteMark = "/figma-assets/about-quote-mark.svg";
-const codeImage = "/figma-assets/about-code-image.png";
+const codeImage = "/figma-assets/about-code-image.jpg";
 const codeButtonIcon = "/figma-assets/about-code-button-icon.svg";
 const iconStaff = "/figma-assets/about-icon-staff.svg";
 const iconServices = "/figma-assets/about-icon-services.svg";
 const iconPolicy = "/figma-assets/about-icon-policy.svg";
-const testimonialImage = "/figma-assets/about-testimonial.png";
+const testimonialImage = "/figma-assets/about-testimonial.jpg";
 const productsBand = "/figma-assets/about-products-band.png";
 const contactMask = "/figma-assets/about-contact-mask.svg";
 const contactBusiness = "/figma-assets/about-contact-business.svg";
